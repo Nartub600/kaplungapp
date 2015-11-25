@@ -21,3 +21,195 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+$rosa-claro: #f7cddd !default;
+$rosa-oscuro: #e35a8e !default;
+$gris: #6d6e70 !default;
+$azul-fb: #4868ad !default;
+
+.bg-rosa-claro {
+    background: $rosa-claro;
+}
+
+.bg-rosa-oscuro {
+    background: $rosa-oscuro;
+}
+
+.bg-blanco {
+    background: white;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+.kipling-font {
+    font-family: KiplingRegular;
+}
+
+.kipling-bold {
+    font-family: KiplingBold;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.lower {
+    text-transform: capitalize;
+}
+
+.bar-footer {
+    color: white;
+    text-transform: uppercase;
+    font-family: KiplingRegular;
+
+    a {
+        text-decoration: none;
+    }
+
+    .title {
+        font-size: 10pt;
+    }
+
+    strong {
+        font-family: KiplingBold;
+    }
+}
+
+#register {
+
+    .punteada {
+        margin-top: 20px;
+    }
+
+    .logo {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 134px;
+    }
+
+    input {
+        height: 35px;
+        text-align: center;
+        font-family: KiplingRegular;
+        font-size: 12pt;
+        line-height: 24pt;
+        text-transform: uppercase;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 80%;
+    }
+
+    button {
+        font-family: KiplingBold;
+        text-transform: uppercase;
+        font-size: 14pt;
+        line-height: 28pt;
+        height: 35px;
+        width: 80%;
+        color: white;
+        border: none;
+    }
+
+    #div_chk_terms {
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        img {
+            width: 15px;
+            vertical-align: middle;
+        }
+
+        span {
+            color: $gris;
+            font-family: KiplingRegular;
+            font-size: 9pt;
+            line-height: 18pt;
+
+            strong {
+                text-transform: uppercase;
+                font-family: KiplingBold;
+            }
+        }
+    }
+
+}
+
+#login {
+
+    .img-container {
+        position: absolute;
+    }
+
+    img:nth-child(1) {
+        width: 250px;
+    }
+
+    img:nth-child(2) {
+        width: 375px;
+        margin-top: -80px;
+    }
+
+    #btn_fb {
+        font-family: KiplingRegular;
+        font-size: 10pt;
+        line-height: 28pt;
+        height: 35px;
+        width: 80%;
+        color: white;
+        background-color: $azul-fb;
+        border: none;
+
+        span {
+            font-size: 12pt;
+            font-family: KiplingBold;
+        }
+    }
+
+    #btn_entrar {
+        font-family: KiplingBold;
+        text-transform: uppercase;
+        font-size: 14pt;
+        line-height: 28pt;
+        height: 35px;
+        width: 80%;
+        color: white;
+        border: none;
+    }
+
+    input {
+        height: 35px;
+        text-align: center;
+        font-family: KiplingRegular;
+        font-size: 12pt;
+        line-height: 24pt;
+        text-transform: uppercase;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 80%;
+    }
+
+}
+
+@font-face {
+    font-family: 'KiplingRegular';
+    src: url('../lib/ionic/fonts/KiplingRegular.eot');
+    src: url('../lib/ionic/fonts/KiplingRegular.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/KiplingRegular.woff2') format('woff2'),
+         url('../lib/ionic/fonts/KiplingRegular.woff') format('woff'),
+         url('../lib/ionic/fonts/KiplingRegular.ttf') format('truetype'),
+         url('../lib/ionic/fonts/KiplingRegular.svg#KiplingRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'KiplingBold';
+    src: url('../lib/ionic/fonts/KiplingBold.eot');
+    src: url('../lib/ionic/fonts/KiplingBold.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/KiplingBold.woff2') format('woff2'),
+         url('../lib/ionic/fonts/KiplingBold.woff') format('woff'),
+         url('../lib/ionic/fonts/KiplingBold.ttf') format('truetype'),
+         url('../lib/ionic/fonts/KiplingBold.svg#KiplingBold') format('svg');
+}

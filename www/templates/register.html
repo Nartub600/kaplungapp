@@ -1,0 +1,36 @@
+<ion-view id="register" class="bg-rosa-claro" ng-controller="RegisterCtrl">
+
+  <ion-content>
+
+    <img class="center punteada" src="img/punteada.png" />
+
+    <img class="center logo" src="img/logo.png" />
+
+    <form class="list">
+
+      <input class="center" type="text" name="firstName" placeholder="nombre" />
+      <input class="center" type="text" name="lastName" placeholder="apellido" />
+      <input class="center" type="email" name="eMail" placeholder="e-mail" />
+      <input class="center" type="password" name="password" placeholder="contraseña" />
+      <input class="center" type="text" name="passwordConfirm" placeholder="confirma tu contraseña" />
+      <input class="center" type="text" name="birthdate" placeholder="cumpleaños" onfocus="(this.type='date')" onblur="(this.type='text')" />
+
+      <div id="div_chk_terms" class="center" ng-click="toggleCheck()">
+        <img id="img_chk_terms" src="img/checkoff.png" />
+        <span>He leído y aceptado los <strong>términos y condiciones</strong></span>
+        <input id="chk_terms" type="hidden" name="terms" value="off" />
+      </div>
+
+      <button class="button center bg-rosa-oscuro">
+        Entrar
+      </button>
+
+    </form>
+
+  </ion-content>
+
+  <div class="bar bar-footer bg-rosa-oscuro">
+    <div class="title">Completa tu información personal <a href="#"><strong>aquí</strong></a></div>
+  </div>
+
+</ion-view>
