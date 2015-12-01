@@ -1,0 +1,57 @@
+<ion-view>
+
+  <div class="kipling-menu">
+
+    <div class="row bg-rosa-medio botones">
+
+      <div class="col bg-rosa-medio" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;perfil&apos;)}">
+        <a ui-sref="loggedin.perfil" ng-click="setActive(&apos;perfil&apos;)">
+          <div class="menu-img-container">
+            <img class="padding-top" src="img/icon-perfil.png">
+          </div>
+          <p class="padding-top">Perfil</p>
+        </a>
+      </div>
+      <div class="col bg-rosa-medio" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;tienda&apos;)}">
+        <a ui-sref="loggedin.tienda" ng-click="setActive(&apos;tienda&apos;)">
+          <div class="menu-img-container">
+            <img src="img/icon-shop.png">
+          </div>
+          <p>Tienda<br>en l&#xED;nea</p>
+        </a>
+      </div>
+      <div class="col bg-rosa-medio" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;musica&apos;)}">
+        <a ui-sref="loggedin.musica" ng-click="setActive(&apos;musica&apos;)">
+          <div class="menu-img-container">
+            <img src="img/icon-music.png">
+          </div>
+          <p class="padding-top">M&#xFA;sica</p>
+        </a>
+      </div>
+      <div class="col bg-rosa-medio" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;blog&apos;)}">
+        <a ui-sref="loggedin.blog" ng-click="setActive(&apos;blog&apos;)">
+          <div class="menu-img-container">
+            <img src="img/icon-blog.png">
+          </div>
+          <p class="padding-top">Blog</p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="row auxiliar">
+      <div class="col" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;perfil&apos;)}">
+      </div>
+      <div class="col" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;tienda&apos;)}">
+      </div>
+      <div class="col" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;musica&apos;)}">
+      </div>
+      <div class="col" ng-class="{&apos;bg-rosa-oscuro&apos; : isActive(&apos;blog&apos;)}">
+      </div>
+    </div>
+
+  </div>
+
+  <ion-nav-view name="loggedin"></ion-nav-view>
+
+</ion-view>

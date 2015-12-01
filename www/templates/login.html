@@ -3,26 +3,26 @@
   <ion-content>
 
     <div class="bg-blanco padding-top">
-      <img src="img/circulo.png" class="center" />
-      <img src="img/animales.png" class="center" />
+      <img class="center img-circulo" src="img/circulo.png" />
+      <img class="center img-animales" src="img/animales.png" />
     </div>
 
     <div class="padding">
 
-      <button id="btn_fb" class="button center">
+      <button class="button center btn-fb">
         <span>f</span> | Conéctate con tu Facebook
       </button>
 
-      <p class="kipling-font center padding-top upper">O entra con tu email</p>
+      <p class="center padding-top texto">O entra con tu email</p>
 
-      <input class="center" type="email" name="eMail" placeholder="e-mail" />
+      <input class="center" type="email" name="email" placeholder="e-mail" />
       <input class="center" type="password" name="password" placeholder="contraseña" />
 
-      <p class="kipling-font center padding-top upper">Tienes tarjeta física?</p>
+      <p class="center padding-top texto">Tienes tarjeta física?</p>
 
       <input class="center" type="text" name="id_tarjeta" placeholder="introduce tu id" />
 
-      <button id="btn_entrar" class="button center bg-rosa-oscuro">
+      <button class="button center btn-entrar" ui-sref="loggedin.perfil">
         Entrar
       </button>
 
@@ -30,8 +30,8 @@
 
   </ion-content>
 
-  <div class="bar bar-footer bg-rosa-oscuro">
-    <div class="title kipling-font upper">¿Aún no conoces kipling friends? <a href="#"><strong>Registrate aquí</strong></a></div>
+  <div class="bar bar-footer def-footer">
+    <div class="title">¿Aún no conoces kipling friends? <a ui-sref="register"><strong>Registrate aquí</strong></a></div>
   </div>
 
 </ion-view>

@@ -1,0 +1,59 @@
+<ion-view class="pagina" id="editar-perfil" ng-controller="EditarPerfilCtrl">
+
+  <!-- <div class="row bg-rosa-claro">
+
+    <img class="center punteada" src="img/punteada.png" />
+
+  </div> -->
+
+  <ion-content>
+
+    <div class="helper"></div>
+
+    <div class="padding-top">
+      <img id="avatar" class="center" src="img/avatar-small.png" />
+    </div>
+
+    <div class="list center" id="form">
+      <p>Nombre completo</p>
+      <input class="center" type="text" placeholder="DIANA ALCÁNTARA ALCÁNTARA" />
+      <p>Confirmar e-mail</p>
+      <input class="center" type="email" placeholder="diana.alcantara@playergroup.com.mx" />
+      <p>Cambiar contraseña</p>
+      <input class="center" type="password" placeholder="************" />
+      <p>Confirmar contraseña</p>
+      <input class="center" type="password" placeholder="************" />
+      <p>Confirma tu cumpleaños</p>
+      <input class="center" type="text" placeholder="dd/mm/aaaa" onfocus="(this.type='date')" onblur="(this.type='text')" />
+    </div>
+
+  </ion-content>
+
+  <script id="my-modal.html" type="text/ng-template">
+    <ion-modal-view class="full-modal bg-fucsia" id="modal-perfil">
+      <ion-content>
+        <a id="btn-cerrar" href="#" ng-click="closeModal()">
+          <img src="img/btn-cerrar.png" />
+        </a>
+
+        <img class="center avatar" src="img/avatar-big.png" />
+
+        <p class="center kipling-bold padding-top size14">CUPID</p>
+        <p class="center kipling-font">¡YAY! Has desbloqueado<br>este avatar</p>
+        <p class="center gunny size20">¡Compártelo!</p>
+
+        <div class="center padding-top">
+            <a href="#"><img class="padding-right" src="img/btn-fb.png" /></a>
+            <a href="#"><img class="padding-left" src="img/btn-tw.png" /></a>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <div class="bar bar-footer bg-rosa-oscuro">
+  <!-- <ion-footer-bar class="bg-rosa-oscuro"> -->
+    <div class="title kipling-font upper"><a href="#" ng-click="openModal()"><strong>Guardar cambios</strong></a></div>
+  <!-- </ion-footer-bar> -->
+  </div>
+
+</ion-view>

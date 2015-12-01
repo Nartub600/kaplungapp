@@ -1,0 +1,88 @@
+<ion-view class="pagina" id="perfil" ng-controller="PerfilCtrl">
+
+  <!-- <div class="row bg-rosa-claro">
+
+    <img class="center punteada" src="img/punteada.png" />
+
+  </div> -->
+
+  <ion-content>
+
+    <div class="helper"></div>
+
+    <div class="padding-top">
+      <img id="avatar" class="center" src="img/avatar-mid.png" />
+    </div>
+
+    <p class="center username padding-top">Diana</p>
+
+    <p class="center kipling-font size11 editar-perfil"><a ui-sref="loggedin.editar">Editar perfil</a></p>
+
+    <p class="center puntaje kipling-bold size16">Tienes <span>900</span> <span>PUNTOS</span></p>
+    <p class="center kipling-font size12">reunidos para canjear los vouchers disponibles</p>
+
+    <img class="center separador" src="img/separador.png" />
+
+    <div class="boton center">
+      <a ui-sref="loggedin.beneficios">
+        <img src="img/btn-beneficios.png" />
+        <span class="kipling-bold padding-left">Mis beneficios</span>
+      </a>
+    </div>
+
+    <img class="center separador" src="img/separador.png" />
+
+    <div class="boton center">
+      <a ui-sref="loggedin.actividad">
+        <img src="img/btn-actividad.png" />
+        <span class="kipling-bold padding-left">Mi actividad</span>
+      </a>
+    </div>
+
+    <img class="center separador" src="img/separador.png" />
+
+    <div class="boton center">
+      <a ui-sref="loggedin.changuitos">
+        <img src="img/btn-changuitos.png" />
+        <span class="kipling-bold padding-left">Mis changuitos</span>
+      </a>
+    </div>
+
+    <img class="center separador" src="img/separador.png" />
+
+  </ion-content>
+
+  <div class="footer">
+    <img class="center boton-footer" src="img/semicirculo.png" />
+    <div class="texto-footer bg-rosa-medio">
+      <p class="center">Desliza para ver tu tarjeta</p>
+      <img class="center" src="img/punteada-footer.png" />
+    </div>
+  </div>
+
+  <script id="my-modal.html" type="text/ng-template">
+    <ion-modal-view class="full-modal bg-fucsia" id="modal-perfil">
+      <ion-content>
+        <a id="btn-cerrar" href="#" ng-click="closeModal()">
+          <img src="img/btn-cerrar.png" />
+        </a>
+
+        <img class="center avatar" src="img/avatar-big.png" />
+
+        <p class="center kipling-bold padding-top size14">CUPID</p>
+        <p class="center kipling-font">¡YAY! Has desbloqueado<br>este avatar</p>
+        <p class="center gunny size20">¡Compártelo!</p>
+
+        <div class="center padding-top">
+            <a href="#"><img class="padding-right" src="img/btn-fb.png" /></a>
+            <a href="#"><img class="padding-left" src="img/btn-tw.png" /></a>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <!-- <div class="bar bar-footer bg-rosa-oscuro">
+    <div class="title kipling-font upper"><a href="#" ng-click="openModal()"><strong>Guardar cambios</strong></a></div>
+  </div> -->
+
+</ion-view>
