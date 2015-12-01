@@ -1,6 +1,6 @@
 {
   "name": "kiplingapp",
-  "app_id": "",
+  "app_id": "01b809cd",
   "gulpStartupTasks": [
     "sass",
     "watch"
