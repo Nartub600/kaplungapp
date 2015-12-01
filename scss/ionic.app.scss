@@ -22,12 +22,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 $rosa-claro: #f7cddd !default;
+$rosa-medio: #f1acc6 !default;
 $rosa-oscuro: #e35a8e !default;
+$fucsia: rgba(#a5304d, .5) !default;
 $gris: #6d6e70 !default;
 $azul-fb: #4868ad !default;
 
 .bg-rosa-claro {
     background: $rosa-claro;
+}
+
+.bg-rosa-medio {
+    background: $rosa-medio;
 }
 
 .bg-rosa-oscuro {
@@ -36,6 +42,15 @@ $azul-fb: #4868ad !default;
 
 .bg-blanco {
     background: white;
+}
+
+.bg-fucsia {
+    background: $fucsia;
+}
+
+.bg-musica {
+    background: -webkit-linear-gradient(top,  #333333 0%,#000000 100%);
+    background: linear-gradient(to bottom,  #333333 0%,#000000 100%);
 }
 
 .center {
@@ -53,6 +68,34 @@ $azul-fb: #4868ad !default;
     font-family: KiplingBold;
 }
 
+.gunny {
+    font-family: gnyrwn971;
+}
+
+.size11 {
+    font-size: 11pt;
+}
+
+.size12 {
+    font-size: 12pt;
+}
+
+.size14 {
+    font-size: 14pt;
+}
+
+.size16 {
+    font-size: 16pt;
+}
+
+.size18 {
+    font-size: 18pt;
+}
+
+.size20 {
+    font-size: 20pt;
+}
+
 .upper {
     text-transform: uppercase;
 }
@@ -61,7 +104,8 @@ $azul-fb: #4868ad !default;
     text-transform: capitalize;
 }
 
-.bar-footer {
+.def-footer {
+    background: $rosa-oscuro;
     color: white;
     text-transform: uppercase;
     font-family: KiplingRegular;
@@ -77,6 +121,64 @@ $azul-fb: #4868ad !default;
     strong {
         font-family: KiplingBold;
     }
+}
+
+.full-modal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.half {
+    -ms-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.kipling-menu {
+
+    position: absolute;
+    width: 100%;
+    z-index: 6;
+
+    img {
+        width: 35px;
+        padding-top: 15px;
+    }
+
+    div {
+        text-align: center;
+        padding: 0;
+        z-index: 6;
+    }
+
+    p {
+        font-family: KiplingRegular;
+        color: white;
+        text-transform: uppercase;
+        font-size: 10pt;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .auxiliar {
+        height: 5px;
+        margin: 0;
+        div {
+            z-index: 6;
+        }
+    }
+
+}
+
+.helper {
+    height: 95px;
 }
 
 #register {
@@ -103,18 +205,19 @@ $azul-fb: #4868ad !default;
         width: 80%;
     }
 
-    button {
+    .btn-entrar {
+        background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
         font-size: 14pt;
-        line-height: 28pt;
+        line-height: 38pt;
         height: 35px;
         width: 80%;
         color: white;
         border: none;
     }
 
-    #div_chk_terms {
+    .chk-terms {
         margin-top: 30px;
         margin-bottom: 30px;
 
@@ -140,20 +243,16 @@ $azul-fb: #4868ad !default;
 
 #login {
 
-    .img-container {
-        position: absolute;
-    }
-
-    img:nth-child(1) {
+    .img-circulo {
         width: 250px;
     }
 
-    img:nth-child(2) {
+    .img-animales {
         width: 375px;
         margin-top: -80px;
     }
 
-    #btn_fb {
+    .btn-fb {
         font-family: KiplingRegular;
         font-size: 10pt;
         line-height: 28pt;
@@ -169,11 +268,17 @@ $azul-fb: #4868ad !default;
         }
     }
 
-    #btn_entrar {
+    .texto {
+        font-family: KiplingRegular;
+        text-transform: uppercase;
+    }
+
+    .btn-entrar {
+        background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
         font-size: 14pt;
-        line-height: 28pt;
+        line-height: 38pt;
         height: 35px;
         width: 80%;
         color: white;
@@ -190,6 +295,372 @@ $azul-fb: #4868ad !default;
         margin-top: 5px;
         margin-bottom: 5px;
         width: 80%;
+    }
+
+}
+
+#perfil {
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #avatar {
+        width: 110px;
+    }
+
+    .username {
+        font-family: KiplingBold;
+        font-size: 18pt;
+        text-transform: uppercase;
+        color: $rosa-oscuro;
+    }
+
+    .editar-perfil {
+        margin-top: -4px;
+        margin-bottom: 4px;
+    }
+
+    .puntaje {
+
+        span {
+            color: $rosa-oscuro;
+        }
+    }
+
+    .separador {
+        width: 300px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .boton {
+        width: 200px;
+        text-align: left;
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            width: 35px;
+        }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 85px;
+        padding: 0;
+
+        .boton-footer {
+            width: 70px;
+        }
+
+        .texto-footer {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            p {
+                font-family: KiplingBold;
+                font-size: 12pt;
+                text-transform: uppercase;
+                color: white;
+                margin: 0;
+                padding-top: 6px;
+                padding-bottom: 1px;
+            }
+
+            img {
+                width: 350px;
+            }
+        }
+    }
+
+}
+
+#editar-perfil {
+
+    #avatar {
+        width: 90px;
+    }
+
+    #form {
+
+        p {
+            font-family: KiplingRegular;
+            color: #626262;
+            text-transform: uppercase;
+            padding-top: 7px;
+        }
+
+        input {
+            font-family: KiplingRegular;
+            font-size: 11pt;
+            width: 80%;
+            border: 1px solid #eeeeee;
+            box-shadow: none;
+            border-radius: 0px;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+
+    }
+
+}
+
+#modal-perfil {
+
+    color: white;
+
+    #btn-cerrar {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        img {
+            width: 20px;
+        }
+    }
+
+    .avatar {
+        width: 200px;
+        padding-top: 150px;
+    }
+
+    img {
+        width: 60px;
+    }
+
+}
+
+#actividad {
+
+    .col-25 {
+        text-align: center;
+        position: relative;
+    }
+
+    .col-75 {
+        position: relative;
+    }
+
+    .avatar {
+        width: 75px;
+    }
+
+    h1 {
+        font-family: KiplingBold;
+        text-transform: uppercase;
+        font-size: 16pt;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .icono {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%) translateX(-17.5px);
+        transform: translateY(-50%) translateX(-17.5px);
+        width: 35px;
+    }
+
+    .fecha {
+        font-family: KiplingRegular;
+        font-size: 9pt;
+        margin: 0;
+    }
+
+    .titulo {
+        font-family: KiplingRegular;
+        font-size: 10pt;
+        text-transform: uppercase;
+        color: $gris;
+        margin: 0;
+    }
+
+    .descripcion {
+        font-family: KiplingRegular;
+        font-size: 9.5pt;
+        margin: 0;
+    }
+
+    .separador {
+        margin-left: 12.5%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid $rosa-claro;
+    }
+
+}
+
+#tienda {
+
+    $azul-oscuro: #2e3e56;
+    $turquesa-oscuro: #048b97;
+
+    $azul-oscuro2: #3c3e60;
+    $marron: #87644d;
+    $gris: #5c6272;
+
+    .azul-oscuro {
+        color: $azul-oscuro;
+    }
+
+    .turquesa-oscuro {
+        color: $turquesa-oscuro;
+    }
+
+    .azul-oscuro2 {
+        color: $azul-oscuro2;
+    }
+
+    .marron {
+        color: $marron;
+    }
+
+    .gris {
+        color: $gris;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: gnyrwn971;
+        color: $rosa-oscuro;
+        margin-top: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        font-family: KiplingRegular;
+        font-size: 10pt;
+        margin-bottom: 0px;
+    }
+
+    h3 {
+        color: $rosa-oscuro;
+        text-transform: uppercase;
+        font-family: KiplingBold;
+        font-size: 14pt;
+        text-align: center;
+        margin: 0;
+    }
+
+    .img-producto {
+        width: 90px;
+    }
+
+    .descripcion {
+        font-family: KiplingRegular;
+        margin: 0;
+    }
+
+    .circulo:before {
+        content: '\25CF';
+        font-size: 30px;
+    }
+
+    .btn-tienda {
+        background: $rosa-oscuro;
+        color: white;
+        font-family: KiplingBold;
+        font-size: 10pt;
+        border: none;
+        text-transform: uppercase;
+        height: 28px;
+    }
+
+    .filas .row:not(:first-child) {
+        padding-top: 10px;
+    }
+
+    .def-footer {
+        .title {
+            font-size: 16pt;
+        }
+    }
+
+}
+
+#musica {
+
+    .spotify {
+        width: 190px;
+        margin-top: 95px;
+        margin-bottom: 20px;
+    }
+
+    .btn-spotify {
+        background: #1dd75f;
+        color: white;
+        text-transform: uppercase;
+        box-shadow: none;
+        border: none;
+        border-radius: 20px;
+        font-family: KiplingBold;
+        font-size: 16pt;
+        height: 35px;
+        width: 200px;
+        padding-top: 9px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+
+#blog {
+
+    .title {
+        width: 100%;
+    }
+
+    .col {
+        position: relative;
+    }
+
+    .row {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .left {
+        padding-left: 0px;
+    }
+
+    .right {
+        padding-right: 0px;
+    }
+
+    .blog-button-bg {
+        width: 100%;
+    }
+
+    .blog-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /*height: 40px;*/
+        transform: translate(-50%,-50%);
+        background: white;
+        width: 70%;
+        text-align: center;
+        font-family: KiplingBold;
+        font-size: 10pt;
+        text-transform: uppercase;
+        padding-top: 10px;
+        padding-bottom: 7px;
+        /*padding-left: 40px;
+        padding-right: 40px;*/
     }
 
 }
@@ -212,4 +683,14 @@ $azul-fb: #4868ad !default;
          url('../lib/ionic/fonts/KiplingBold.woff') format('woff'),
          url('../lib/ionic/fonts/KiplingBold.ttf') format('truetype'),
          url('../lib/ionic/fonts/KiplingBold.svg#KiplingBold') format('svg');
+}
+
+@font-face {
+    font-family: 'gnyrwn971';
+    src: url('../lib/ionic/fonts/gnyrwn971.eot');
+    src: url('../lib/ionic/fonts/gnyrwn971.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gnyrwn971.woff2') format('woff2'),
+         url('../lib/ionic/fonts/gnyrwn971.woff') format('woff'),
+         url('../lib/ionic/fonts/gnyrwn971.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gnyrwn971.svg#gnyrwn971') format('svg');
 }
