@@ -18,36 +18,59 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('RegisterCtrl', function($scope) {
+.controller('RegisterCtrl', function($scope, $http) {
+    $scope.terms = 'off';
+    $scope.user = {};
 
     $scope.toggleCheck = function() {
-        var checkbox = angular.element(document.getElementById('chk-terms'));
         var image = angular.element(document.getElementById('img-chk-terms'));
-        var value = checkbox.val();
 
-        switch (value) {
+        switch ($scope.terms) {
             case 'off':
-                checkbox.val('on');
+                $scope.terms = 'on';
                 image.attr('src', 'img/checkon.png');
                 break;
             case 'on':
-                checkbox.val('off');
+                $scope.terms = 'off';
                 image.attr('src', 'img/checkoff.png');
                 break;
         }
     }
 
+    $scope.register = function() {
+        $scope.user.terms = $scope.terms;
+
+        $http.post('http://imaginista.mx/mobileadmin/public/user/register', $scope.user).then(function(resp){
+            if (resp.data.status == 'ok') {
+                $state.go('loggedin.perfil');
+            } else {
+                alert(resp.data.status);
+            }
+        }, function(resp){
+            alert(resp.data.status);
+        });
+    }
 })
 
-.controller('LoginCtrl', function($scope) {
+.controller('LoginCtrl', function($scope, $http, $state, $localstorage) {
+    $scope.user = {};
+
+    $scope.login = function(){
+        $http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
+            if (resp.data.status == 'ok') {
+                $localstorage.setObject('user', resp.data.user);
+                $state.go('loggedin.perfil');
+            } else {
+                alert(resp.data.status);
+            }
+        }, function(resp){
+            alert(resp.data.status);
+        });
+    }
 
 })
 
-.controller('PerfilCtrl', function($scope) {
-
-})
-
-.controller('EditarPerfilCtrl', function($scope, $ionicModal) {
+.controller('LoggedInCtrl', function($scope, $ionicModal) {
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
         scope: $scope,
@@ -63,6 +86,35 @@ angular.module('kipling.controllers', [])
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
+
+})
+
+.controller('PerfilCtrl', function($scope) {
+
+})
+
+.controller('EditarCtrl', function($scope, $localstorage, $http, $state) {
+
+    $scope.user = {};
+
+    $scope.user = $localstorage.getObject('user');
+
+    $scope.update = function(){
+        $http.put('http://imaginista.mx/mobileadmin/public/user/update/' + $scope.user.id, $scope.user).then(function(resp){
+            if (resp.data.status == 'ok') {
+                $localstorage.setObject('user', resp.data.user);
+                $state.go('loggedin.perfil');
+            } else {
+                alert(resp.data.status);
+            }
+        }, function(resp){
+            alert(resp.data.status);
+        });
+    }
+
+})
+
+.controller('CambiarAvatarCtrl', function($scope) {
 
 })
 
