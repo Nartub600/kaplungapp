@@ -21,11 +21,42 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@font-face {
+    font-family: 'KiplingRegular';
+    src: url('../lib/ionic/fonts/KiplingRegular.eot');
+    src: url('../lib/ionic/fonts/KiplingRegular.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/KiplingRegular.woff2') format('woff2'),
+         url('../lib/ionic/fonts/KiplingRegular.woff') format('woff'),
+         url('../lib/ionic/fonts/KiplingRegular.ttf') format('truetype'),
+         url('../lib/ionic/fonts/KiplingRegular.svg#KiplingRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'KiplingBold';
+    src: url('../lib/ionic/fonts/KiplingBold.eot');
+    src: url('../lib/ionic/fonts/KiplingBold.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/KiplingBold.woff2') format('woff2'),
+         url('../lib/ionic/fonts/KiplingBold.woff') format('woff'),
+         url('../lib/ionic/fonts/KiplingBold.ttf') format('truetype'),
+         url('../lib/ionic/fonts/KiplingBold.svg#KiplingBold') format('svg');
+}
+
+@font-face {
+    font-family: 'gnyrwn971';
+    src: url('../lib/ionic/fonts/gnyrwn971.eot');
+    src: url('../lib/ionic/fonts/gnyrwn971.eot') format('embedded-opentype'),
+         url('../lib/ionic/fonts/gnyrwn971.woff2') format('woff2'),
+         url('../lib/ionic/fonts/gnyrwn971.woff') format('woff'),
+         url('../lib/ionic/fonts/gnyrwn971.ttf') format('truetype'),
+         url('../lib/ionic/fonts/gnyrwn971.svg#gnyrwn971') format('svg');
+}
+
 $rosa-claro: #f7cddd !default;
 $rosa-medio: #f1acc6 !default;
 $rosa-oscuro: #e35a8e !default;
 $fucsia: rgba(#a5304d, .5) !default;
 $gris: #6d6e70 !default;
+$gris-claro: #e4e3e3 !default;
 $azul-fb: #4868ad !default;
 
 .bg-rosa-claro {
@@ -60,65 +91,21 @@ $azul-fb: #4868ad !default;
     text-align: center;
 }
 
-.kipling-font {
-    font-family: KiplingRegular;
-}
-
-.kipling-bold {
-    font-family: KiplingBold;
-}
-
-.gunny {
-    font-family: gnyrwn971;
-}
-
-.size11 {
-    font-size: 11pt;
-}
-
-.size12 {
-    font-size: 12pt;
-}
-
-.size14 {
-    font-size: 14pt;
-}
-
-.size16 {
-    font-size: 16pt;
-}
-
-.size18 {
-    font-size: 18pt;
-}
-
-.size20 {
-    font-size: 20pt;
-}
-
-.upper {
-    text-transform: uppercase;
-}
-
-.lower {
-    text-transform: capitalize;
-}
-
 .def-footer {
+    font-family: KiplingRegular;
     background: $rosa-oscuro;
     color: white;
     text-transform: uppercase;
-    font-family: KiplingRegular;
-
-    a {
-        text-decoration: none;
-    }
 
     .title {
         font-size: 10pt;
     }
 
-    strong {
+    a {
+        text-decoration: none;
+    }
+
+    .bold {
         font-family: KiplingBold;
     }
 }
@@ -130,15 +117,26 @@ $azul-fb: #4868ad !default;
     left: 0;
 }
 
-.half {
+strong {
+    font-family: KiplingBold;
+}
+
+/*.half {
     -ms-transform: scale(0.5);
     -webkit-transform: scale(0.5);
     -o-transform: scale(0.5);
     -moz-transform: scale(0.5);
     transform: scale(0.5);
-}
+}*/
 
 .kipling-menu {
+
+    .punteada {
+        position: absolute;
+        width: 100%;
+        z-index: 12;
+        top: 4px;
+    }
 
     position: absolute;
     width: 100%;
@@ -184,7 +182,7 @@ $azul-fb: #4868ad !default;
 #register {
 
     .punteada {
-        margin-top: 20px;
+        margin-top: 25px;
     }
 
     .logo {
@@ -197,8 +195,8 @@ $azul-fb: #4868ad !default;
         height: 35px;
         text-align: center;
         font-family: KiplingRegular;
-        font-size: 12pt;
-        line-height: 24pt;
+        font-size: 11pt;
+        line-height: 22pt;
         text-transform: uppercase;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -209,9 +207,9 @@ $azul-fb: #4868ad !default;
         background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
-        font-size: 14pt;
-        line-height: 38pt;
-        height: 35px;
+        font-size: 12pt;
+        line-height: 24pt;
+        min-height: 35px;
         width: 80%;
         color: white;
         border: none;
@@ -234,8 +232,12 @@ $azul-fb: #4868ad !default;
 
             strong {
                 text-transform: uppercase;
-                font-family: KiplingBold;
             }
+        }
+
+        a {
+            text-decoration: none;
+            color: $gris;
         }
     }
 
@@ -243,24 +245,31 @@ $azul-fb: #4868ad !default;
 
 #login {
 
+    background: $rosa-claro;
+
+    .punteada {
+        padding: 10px;
+    }
+
     .img-circulo {
         width: 250px;
     }
 
     .img-animales {
         width: 375px;
-        margin-top: -80px;
+        margin-top: -85px;
     }
 
     .btn-fb {
         font-family: KiplingRegular;
         font-size: 10pt;
-        line-height: 28pt;
-        height: 35px;
+        line-height: 20pt;
+        min-height: 35px;
         width: 80%;
         color: white;
         background-color: $azul-fb;
         border: none;
+        margin-bottom: 5px;
 
         span {
             font-size: 12pt;
@@ -270,31 +279,42 @@ $azul-fb: #4868ad !default;
 
     .texto {
         font-family: KiplingRegular;
+        font-size: 11pt;
         text-transform: uppercase;
+        margin: 0;
+        padding-top: 3px;
     }
 
     .btn-entrar {
         background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
-        font-size: 14pt;
-        line-height: 38pt;
-        height: 35px;
+        font-size: 12pt;
+        line-height: 24pt;
+        min-height: 35px;
         width: 80%;
         color: white;
         border: none;
     }
 
     input {
-        height: 35px;
+        height: 30px;
         text-align: center;
         font-family: KiplingRegular;
-        font-size: 12pt;
-        line-height: 24pt;
+        font-size: 11pt;
+        line-height: 22pt;
         text-transform: uppercase;
         margin-top: 5px;
         margin-bottom: 5px;
         width: 80%;
+    }
+
+    .def-footer {
+
+        .title {
+            font-size: 10pt;
+        }
+
     }
 
 }
@@ -318,15 +338,26 @@ $azul-fb: #4868ad !default;
     }
 
     .editar-perfil {
+        font-family: KiplingRegular;
+        font-size: 11pt;
         margin-top: -4px;
         margin-bottom: 4px;
     }
 
     .puntaje {
 
+        font-family: KiplingBold;
+        font-size: 16pt;
+
         span {
             color: $rosa-oscuro;
         }
+
+    }
+
+    .info-puntos {
+        font-family: KiplingRegular;
+        font-size: 11pt;
     }
 
     .separador {
@@ -336,6 +367,8 @@ $azul-fb: #4868ad !default;
     }
 
     .boton {
+        font-family: KiplingBold;
+        font-size: 10pt;
         width: 200px;
         text-align: left;
         padding-top: 3px;
@@ -387,7 +420,7 @@ $azul-fb: #4868ad !default;
 
 }
 
-#editar-perfil {
+#editar {
 
     #avatar {
         width: 90px;
@@ -413,6 +446,12 @@ $azul-fb: #4868ad !default;
             margin-top: -7px;
         }
 
+    }
+
+    .def-footer {
+        .title {
+            font-size: 12pt;
+        }
     }
 
 }
@@ -441,14 +480,41 @@ $azul-fb: #4868ad !default;
 
 }
 
-#actividad {
+#cambiar-avatar {
 
-    .col-25 {
+    h1 {
+        font-family: KiplingBold;
+        color: $rosa-oscuro;
+        text-transform: uppercase;
+        font-size: 16pt;
         text-align: center;
-        position: relative;
     }
 
-    .col-75 {
+    .img-avatar {
+        width: 70px;
+    }
+
+    h2 {
+        font-family: KiplingBold;
+        font-size: 10pt;
+        text-align: center;
+        color: $rosa-oscuro;
+        text-transform: uppercase;
+    }
+
+    h2.disabled {
+        color: $gris-claro;
+    }
+
+    .filas .row:not(:first-child) {
+        padding-top: 10px;
+    }
+
+}
+
+#actividad {
+
+    .col {
         position: relative;
     }
 
@@ -462,16 +528,18 @@ $azul-fb: #4868ad !default;
         font-size: 16pt;
         position: absolute;
         top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
+        left: 0;
+        -webkit-transform: translate(0, -50%);
+        display: block;
     }
 
     .icono {
         position: absolute;
         top: 50%;
-        -webkit-transform: translateY(-50%) translateX(-17.5px);
-        transform: translateY(-50%) translateX(-17.5px);
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
         width: 35px;
+        display: block;
     }
 
     .fecha {
@@ -499,6 +567,15 @@ $azul-fb: #4868ad !default;
         height: 1px;
         border: 0;
         border-top: 1px solid $rosa-claro;
+    }
+
+}
+
+#beneficios {
+
+    .img-beneficio {
+        width: 270px;
+        padding-top: 20px;
     }
 
 }
@@ -649,48 +726,21 @@ $azul-fb: #4868ad !default;
         position: absolute;
         top: 50%;
         left: 50%;
-        /*height: 40px;*/
-        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%, -50%);
+        height: 35px;
+        /*margin-left: auto;
+        margin-right: auto;*/
         background: white;
-        width: 70%;
+        width: 80%;
         text-align: center;
         font-family: KiplingBold;
         font-size: 10pt;
+        line-height: 28pt;
         text-transform: uppercase;
-        padding-top: 10px;
-        padding-bottom: 7px;
+        /*padding-top: 10px;
+        padding-bottom: 10px;*/
         /*padding-left: 40px;
         padding-right: 40px;*/
     }
 
-}
-
-@font-face {
-    font-family: 'KiplingRegular';
-    src: url('../lib/ionic/fonts/KiplingRegular.eot');
-    src: url('../lib/ionic/fonts/KiplingRegular.eot') format('embedded-opentype'),
-         url('../lib/ionic/fonts/KiplingRegular.woff2') format('woff2'),
-         url('../lib/ionic/fonts/KiplingRegular.woff') format('woff'),
-         url('../lib/ionic/fonts/KiplingRegular.ttf') format('truetype'),
-         url('../lib/ionic/fonts/KiplingRegular.svg#KiplingRegular') format('svg');
-}
-
-@font-face {
-    font-family: 'KiplingBold';
-    src: url('../lib/ionic/fonts/KiplingBold.eot');
-    src: url('../lib/ionic/fonts/KiplingBold.eot') format('embedded-opentype'),
-         url('../lib/ionic/fonts/KiplingBold.woff2') format('woff2'),
-         url('../lib/ionic/fonts/KiplingBold.woff') format('woff'),
-         url('../lib/ionic/fonts/KiplingBold.ttf') format('truetype'),
-         url('../lib/ionic/fonts/KiplingBold.svg#KiplingBold') format('svg');
-}
-
-@font-face {
-    font-family: 'gnyrwn971';
-    src: url('../lib/ionic/fonts/gnyrwn971.eot');
-    src: url('../lib/ionic/fonts/gnyrwn971.eot') format('embedded-opentype'),
-         url('../lib/ionic/fonts/gnyrwn971.woff2') format('woff2'),
-         url('../lib/ionic/fonts/gnyrwn971.woff') format('woff'),
-         url('../lib/ionic/fonts/gnyrwn971.ttf') format('truetype'),
-         url('../lib/ionic/fonts/gnyrwn971.svg#gnyrwn971') format('svg');
 }
