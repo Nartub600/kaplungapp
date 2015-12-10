@@ -1,30 +1,34 @@
-<ion-view id="login" class="bg-rosa-claro" ng-controller="LoginCtrl">
+<ion-view id="login" class="has-footer" ng-controller="LoginCtrl">
 
-  <ion-content>
+  <ion-content class="has-footer">
 
-    <div class="bg-blanco padding-top">
+    <div class="bg-blanco">
       <img class="center img-circulo" src="img/circulo.png" />
       <img class="center img-animales" src="img/animales.png" />
     </div>
 
-    <div class="padding">
+    <div>
+
+      <img class="center punteada" src="img/punteada.png" />
 
       <button class="button center btn-fb">
         <span>f</span> | Conéctate con tu Facebook
       </button>
 
-      <p class="center padding-top texto">O entra con tu email</p>
+      <form ng-submit="login()">
+        <p class="center texto">O entra con tu email</p>
 
-      <input class="center" type="email" name="email" placeholder="e-mail" />
-      <input class="center" type="password" name="password" placeholder="contraseña" />
+        <input ng-model="user.email" class="center" type="email" name="email" placeholder="E-MAIL" />
+        <input ng-model="user.password" class="center" type="password" name="password" placeholder="CONTRASEÑA" />
 
-      <p class="center padding-top texto">Tienes tarjeta física?</p>
+        <p class="center texto">Tienes tarjeta física?</p>
 
-      <input class="center" type="text" name="id_tarjeta" placeholder="introduce tu id" />
+        <input class="center" type="text" name="id_tarjeta" placeholder="INTRODUCE TU ID" />
 
-      <button class="button center btn-entrar" ui-sref="loggedin.perfil">
-        Entrar
-      </button>
+        <button type="submit" class="button center btn-entrar">
+          Entrar
+        </button>
+      </form>
 
     </div>
 

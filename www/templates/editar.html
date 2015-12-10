@@ -1,0 +1,38 @@
+<ion-view class="pagina" id="editar" ng-controller="EditarCtrl">
+
+  <!-- <div class="row bg-rosa-claro">
+
+    <img class="center punteada" src="img/punteada.png" />
+
+  </div> -->
+
+  <ion-content class="has-footer">
+
+    <div class="helper"></div>
+
+    <div class="padding-top">
+      <a ui-sref="loggedin.cambiar-avatar"><img id="avatar" class="center" src="img/avatar-small.png" /></a>
+    </div>
+
+    <div class="list center" id="form">
+      <form>
+        <p>Nombre completo</p>
+        <input ng-model="user.firstname" class="center" type="text" placeholder="NOMBRE" value="{{user.firstname}}" />
+        <p>Confirmar e-mail</p>
+        <input ng-model="user.email" class="center" type="email" placeholder="E-MAIL" VALUE="{{user.email}}" />
+        <p>Cambiar contraseña</p>
+        <input ng-model="user.password" class="center" type="password" placeholder="**********" />
+        <p>Confirmar contraseña</p>
+        <input ng-model="user.password_confirmation" class="center" type="password" placeholder="**********" />
+        <p>Confirma tu cumpleaños</p>
+        <input ng-model="user.birthdate" class="center" type="text" placeholder="dd/mm/aaaa" value="{{user.birthdate}}" onfocus="(this.type='date')" onblur="(this.type='text')" />
+      </form>
+    </div>
+
+  </ion-content>
+
+  <div class="bar bar-footer def-footer">
+    <div class="title"><a href="#" ng-click="update()"><strong>Guardar cambios</strong></a></div>
+  </div>
+
+</ion-view>
