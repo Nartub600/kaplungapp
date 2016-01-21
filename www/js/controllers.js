@@ -56,16 +56,16 @@ angular.module('kipling.controllers', [])
     $scope.user = {};
 
     $scope.login = function(){
-        $http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
-            if (resp.data.status == 'ok') {
-                $localstorage.setObject('user', resp.data.user);
+        /*$http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
+            if (resp.data.status == 'ok') {*/
+                $localstorage.setObject('user', {});
                 $state.go('loggedin.perfil');
-            } else {
+          /*  } else {
                 alert(resp.data.status);
             }
         }, function(resp){
             alert(resp.data.status);
-        });
+        });*/
     }
 
 })
