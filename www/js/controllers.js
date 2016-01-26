@@ -1,4 +1,10 @@
-angular.module('kipling.controllers', [])
+angular.module('kipling.controllers', []).constant('ApiEndpoint', {
+  url: 'http://localhost:8100/api'
+})
+// For the real endpoint, we'd use this
+// .constant('ApiEndpoint', {
+//  url: 'http://cors.api.com/api'
+// })
 
 .controller('MainCtrl', function($scope) {
 
@@ -52,22 +58,24 @@ angular.module('kipling.controllers', [])
     }
 })
 
-.controller('LoginCtrl', function($scope, $http, $state, $localstorage) {
+.controller('LoginCtrl', function($scope, $http, $state, $localstorage, ApiEndpoint) {
     $scope.user = {};
 
     $scope.login = function(){
-        $http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
-            if (resp.data.status == 'ok') {
-                $localstorage.setObject('user', resp.data.user);
+        $http.post(ApiEndpoint.url+ '/login', {
+          "user": $scope.user.email,
+          "pass": $scope.user.password
+        }).then(function(resp){
+            if (resp.status === 200 && resp.data === true) {
+                $localstorage.setObject('user', $scope.user);
                 $state.go('loggedin.perfil');
-            } else {
-                alert(resp.data.status);
+              } else {
+                alert('El e-mail o contraseña ingresados, no son correctos ');
             }
         }, function(resp){
             alert(resp.data.status);
         });
     }
-
 })
 
 .controller('LoggedInCtrl', function($scope, $ionicModal) {
@@ -89,7 +97,24 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('PerfilCtrl', function($scope) {
+.controller('PerfilCtrl', function($scope, $http, ApiEndpoint, $localstorage) {
+    $scope.user = $localstorage.getObject('user');
+
+
+    $http.post(ApiEndpoint.url+ '/pointsByUser', {
+      "mail": $scope.user.email
+    }).then(function(resp){
+        if (resp.status === 200) {
+            $scope.user.points = resp.data;
+            
+            console.log("dami", $scope.user);
+          } else {
+            alert('Error inesperado');
+            console.log("Response", resp);
+        }
+    }, function(resp){
+        alert(resp.data.status);
+    });
 
 })
 
