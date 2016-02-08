@@ -39,75 +39,48 @@
       <div class="col ondas"></div>
     </div>
 
-    <div class="row">
-        <div class="col">
-          <img class="blog-button-bg" src="img/blog-post-01.png" />
-          <div class="blog-post-header">
-            <h1>pellentesque vitae sapien</h1>
-            <h2>style <span>- 01 de julio, 2004</span></h2>
-            <div class="row blog-post-rating">
-              <div class="col">
-                <img src="img/blog-star-on.png" />
+    <!-- <ion-item collection-repeat="item in topTen"> -->
+    <div ng-repeat="item in topTen">
+      <div class="row">
+          <div class="col">
+            <img class="blog-button-bg" src="img/blog-post-01.png" />
+            <div class="blog-post-header">
+              <h1 class="blog-header-title">{{item.title}}</h1>
+              <ul class="category-list">
+                <li ng-repeat="category in item.categories">{{category}}<span ng-show="!$last">, </span></li>
+              </ul>
+              <span class="blog-header-text">{{item.pubDate | date:"d 'de' MMMM, yyyy"}}</span>
+              <div class="row blog-post-rating">
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-off.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-off.png" />
+                </div>
               </div>
-              <div class="col">
-                <img src="img/blog-star-on.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-on.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-off.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-off.png" />
-              </div>
+              <p class="blog-header-text">Por {{item.author}}</p>
             </div>
-            <h3>Por Diana</h3>
           </div>
-        </div>
-    </div>
-    <div class="row blog-post-content">
-      <div class="col padding">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </div>
-      <div class="coll separador-vertical" ></div>
-      <div class="col-25 col-center leer-mas" >Leer Más</div>
-    </div>
+      <div class="row blog-post-content">
+        <div class="col padding">
+          {{item.description}}
+        </div>
+        <div class="coll separador-vertical" ></div>
+        <div class="col-25 col-center leer-mas" >Leer Más</div>
+      </div>
+   <!-- </ion-item> -->
+</div>
 
-    <div class="row">
-        <div class="col">
-          <img class="blog-button-bg" src="img/blog-post-02.png" />
-          <div class="blog-post-header">
-            <h1>pellentesque vitae sapien</h1>
-            <h2>style <span>- 01 de julio, 2004</span></h2>
-            <div class="row blog-post-rating">
-              <div class="col">
-                <img src="img/blog-star-on.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-on.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-off.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-off.png" />
-              </div>
-              <div class="col">
-                <img src="img/blog-star-off.png" />
-              </div>
-            </div>
-            <h3>Por Diana</h3>
-          </div>
-        </div>
-    </div>
-    <div class="row blog-post-content">
-      <div class="col padding">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </div>
-      <div class="coll separador-vertical" ></div>
-      <div class="col-25 col-center leer-mas" >Leer Más</div>
-    </div>
 
     <!-- categorias -->
     <div class="row responsive-sm responsive-mg responsive-ld blog-categories">
