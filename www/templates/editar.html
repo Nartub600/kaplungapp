@@ -10,14 +10,18 @@
 
     <div class="helper"></div>
 
+    <img class="btn-back" src="img/back.png" ng-click="goBack()" />
+
     <div class="padding-top">
       <a ui-sref="loggedin.cambiar-avatar"><img id="avatar" class="center" src="img/avatar-small.png" /></a>
     </div>
 
     <div class="list center" id="form">
       <form>
-        <p>Nombre completo</p>
+        <p>Nombre</p>
         <input ng-model="user.firstname" class="center" type="text" placeholder="NOMBRE" value="{{user.firstname}}" />
+        <p>Apellido</p>
+        <input ng-model="user.lastname" class="center" type="text" placeholder="APELLIDO" value="{{user.lastname}}" />
         <p>Confirmar e-mail</p>
         <input ng-model="user.email" class="center" type="email" placeholder="E-MAIL" VALUE="{{user.email}}" />
         <p>Cambiar contraseña</p>
@@ -28,6 +32,8 @@
         <input ng-model="user.birthdate" class="center" type="text" placeholder="dd/mm/aaaa" value="{{user.birthdate}}" onfocus="(this.type='date')" onblur="(this.type='text')" />
       </form>
     </div>
+
+    <a class="center btn-logout" ng-click="logout()">Cerrar sesión</a>
 
   </ion-content>
 

@@ -2,7 +2,9 @@
 
   <div class="kipling-menu">
 
-    <!-- <img class="center punteada" src="img/punteada.png" /> -->
+    <div class="punteada-container">
+      <img class="punteada" src="img/punteada.png" />
+    </div>
 
     <div class="row bg-rosa-medio botones">
 
@@ -57,24 +59,3 @@
   <ion-nav-view name="loggedin"></ion-nav-view>
 
 </ion-view>
-
-<script id="my-modal.html" type="text/ng-template">
-  <ion-modal-view class="full-modal bg-fucsia" id="modal-perfil">
-    <ion-content>
-      <a id="btn-cerrar" href="#" ng-click="closeModal()">
-        <img src="img/btn-cerrar.png" />
-      </a>
-
-      <img class="center avatar" src="img/avatar-big.png" />
-
-      <p class="center kipling-bold padding-top size14">CUPID</p>
-      <p class="center kipling-font">¡YAY! Has desbloqueado<br>este avatar</p>
-      <p class="center gunny size20">¡Compártelo!</p>
-
-      <div class="center padding-top">
-          <a href="#"><img class="padding-right" src="img/btn-fb.png" /></a>
-          <a href="#"><img class="padding-left" src="img/btn-tw.png" /></a>
-      </div>
-    </ion-content>
-  </ion-modal-view>
-</script>

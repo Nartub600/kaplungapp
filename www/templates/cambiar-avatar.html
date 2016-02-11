@@ -10,7 +10,11 @@
 
     <div class="helper"></div>
 
-    <h1>Cambia tu avatar</h1>
+    <img class="btn-back" src="img/back.png" ng-click="goBack()" />
+
+    <h1><span ng-click="openModalUnblock()">Mis</span> <span ng-click="openModalChange()">changuitos</span></h1>
+
+    <img class="center separador" src="img/separador.png" />
 
     <div class="filas">
 
@@ -20,7 +24,7 @@
 
                 <img class="center img-avatar" src="img/cambia-01.png" />
 
-                <h2 class="center">Guy</h2>
+                <h2 class="center">Joris</h2>
 
             </div>
 
@@ -28,7 +32,7 @@
 
                 <img class="center img-avatar" src="img/cambia-02.png" />
 
-                <h2 class="center">Jim</h2>
+                <h2 class="center">Joseph</h2>
 
             </div>
 
@@ -48,7 +52,7 @@
 
                 <img class="center img-avatar" src="img/cambia-04.png" />
 
-                <h2 class="center disabled">Mom?</h2>
+                <h2 class="center disabled">Clara</h2>
 
             </div>
 
@@ -64,7 +68,7 @@
 
                 <img class="center img-avatar" src="img/cambia-06.png" />
 
-                <h2 class="center">Cupid</h2>
+                <h2 class="center">Ghizlane</h2>
 
             </div>
 
@@ -103,3 +107,44 @@
   </ion-content>
 
 </ion-view>
+
+<script id="modal-unblock.html" type="text/ng-template">
+  <ion-modal-view class="full-modal bg-fucsia" id="modal-unblock">
+    <ion-content>
+      <a id="btn-cerrar" href="#" ng-click="closeModalUnblock()">
+        <img src="img/btn-cerrar.png" />
+      </a>
+
+      <img class="center avatar" src="img/avatar-big.png" />
+
+      <p class="center padding-top changuito-name">CUPID</p>
+      <p class="center label-unblock">¡YAY! Has desbloqueado<br>este avatar</p>
+      <p class="center label-share">¡Compártelo!</p>
+
+      <div class="center padding-top">
+          <a href="#"><img class="padding-right" src="img/btn-fb.png" /></a>
+          <a href="#"><img class="padding-left" src="img/btn-tw.png" /></a>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="modal-change.html" type="text/ng-template">
+  <ion-modal-view class="full-modal bg-fucsia" id="modal-change">
+    <ion-content>
+      <a id="btn-cerrar" href="#" ng-click="closeModalChange()">
+        <img src="img/btn-cerrar.png" />
+      </a>
+
+      <img class="center avatar" src="img/avatar-big.png" />
+
+      <p class="center padding-top changuito-name">CUPID</p>
+      <p class="center label-change">¿Quieres cambiar tu avatar?</p>
+
+      <div class="center padding-top">
+          <a href="#"><img class="padding-right" src="img/btn-si.png" /></a>
+          <a href="#"><img class="padding-left" src="img/btn-no.png" /></a>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>

@@ -10,41 +10,62 @@
 
     <div class="helper"></div>
 
-    <div class="padding-top">
-      <img id="avatar" class="center" src="img/avatar-mid.png" />
+    <div class="row avatar-row">
+      <div class="col-33 flexbox-container">
+        <img id="avatar" class="center" src="img/avatar-mid.png" />
+      </div>
+      <div class="col-67">
+        <p class="username padding-top">{{user.firstname}}</p>
+
+        <p class="editar-perfil"><a ui-sref="loggedin.editar">Editar perfil</a></p>
+
+        <p class="puntaje">Tienes <span>900</span> <span>PUNTOS</span></p>
+        <p class="info-puntos">reunidos para canjear los vouchers disponibles</p>
+      </div>
     </div>
-
-    <p class="center username padding-top">Diana</p>
-
-    <p class="center editar-perfil"><a ui-sref="loggedin.editar">Editar perfil</a></p>
-
-    <p class="center puntaje">Tienes <span>900</span> <span>PUNTOS</span></p>
-    <p class="center info-puntos">reunidos para canjear los vouchers disponibles</p>
 
     <img class="center separador" src="img/separador.png" />
 
-    <div class="boton center">
+    <div class="boton center row">
       <a ui-sref="loggedin.beneficios">
-        <img src="img/btn-beneficios.png" />
-        <span class="kipling-bold padding-left">Mis beneficios</span>
+        <div class="row">
+          <div class="col-33 left">
+            <img src="img/btn-beneficios.png" />
+          </div>
+          <div class="col-67 right">
+            <span class="kipling-bold padding-left">Mis beneficios</span>
+          </div>
+        </div>
       </a>
     </div>
 
     <img class="center separador" src="img/separador.png" />
 
-    <div class="boton center">
+    <div class="boton center row">
       <a ui-sref="loggedin.actividad">
-        <img src="img/btn-actividad.png" />
-        <span class="kipling-bold padding-left">Mi actividad</span>
+        <div class="row">
+          <div class="col-33 left">
+            <img src="img/btn-actividad.png" />
+          </div>
+          <div class="col-67 right">
+            <span class="kipling-bold padding-left">Mi actividad</span>
+          </div>
+        </div>
       </a>
     </div>
 
     <img class="center separador" src="img/separador.png" />
 
-    <div class="boton center">
-      <a ui-sref="loggedin.changuitos">
-        <img src="img/btn-changuitos.png" />
-        <span class="kipling-bold padding-left">Mis changuitos</span>
+    <div class="boton center row">
+      <a ui-sref="loggedin.cambiar-avatar">
+        <div class="row">
+          <div class="col-33 left">
+            <img src="img/btn-changuitos.png" />
+          </div>
+          <div class="col-67 right">
+            <span class="kipling-bold padding-left">Mis changuitos</span>
+          </div>
+        </div>
       </a>
     </div>
 

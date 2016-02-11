@@ -2,17 +2,17 @@
 
   <ion-content class="has-footer">
 
-    <img class="center punteada" src="img/punteada.png" />
+    <img class="center punteada" src="img/punteadax.png" />
 
     <img class="center logo" src="img/logo.png" />
 
     <form class="list" ng-submit="register()">
 
       <input ng-model="user.firstname" class="center" type="text" name="firstname" placeholder="NOMBRE" />
-      <input ng-model="user.lastname" class="center" type="text" name="lastname" placeholder="APELLLIDO" />
+      <input ng-model="user.lastname" class="center" type="text" name="lastname" placeholder="APELLLIDOS" />
       <input ng-model="user.email" class="center" type="email" name="email" placeholder="E-MAIL" />
       <input ng-model="user.password" class="center" type="password" name="password" placeholder="CONTRASEÑA" />
-      <input ng-model="user.password_confirmation" class="center" type="text" name="password_confirmation" placeholder="CONFIRMA TU CONTRASEÑA" />
+      <input ng-model="user.password_confirmation" class="center" type="password" name="password_confirmation" placeholder="CONFIRMA TU CONTRASEÑA" />
       <input ng-model="user.birthdate" class="center" type="text" name="birthdate" placeholder="CUMPLEAÑOS" onfocus="(this.type='date')" onblur="(this.type='text')" />
 
       <div class="center chk-terms" ng-click="toggleCheck()">
@@ -26,8 +26,8 @@
 
   </ion-content>
 
-  <div class="bar bar-footer def-footer">
+  <!-- <div class="bar bar-footer def-footer">
     <div class="title">Completa tu información personal <a href="#"><strong>aquí</strong></a></div>
-  </div>
+  </div> -->
 
 </ion-view>

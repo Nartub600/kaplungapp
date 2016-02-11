@@ -54,7 +54,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 $rosa-claro: #f7cddd !default;
 $rosa-medio: #f1acc6 !default;
 $rosa-oscuro: #e35a8e !default;
-$fucsia: rgba(#a5304d, .5) !default;
+$fucsia: rgba(#a5304d, .9) !default;
 $gris: #6d6e70 !default;
 $gris-claro: #e4e3e3 !default;
 $azul-fb: #4868ad !default;
@@ -117,6 +117,12 @@ $azul-fb: #4868ad !default;
     left: 0;
 }
 
+.flexbox-container {
+    -webkit-align-items: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+}
+
 strong {
     font-family: KiplingBold;
 }
@@ -131,16 +137,29 @@ strong {
 
 .kipling-menu {
 
-    .punteada {
-        position: absolute;
-        width: 100%;
-        z-index: 12;
-        top: 4px;
-    }
-
     position: absolute;
     width: 100%;
     z-index: 6;
+
+    .punteada-container {
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 100%;
+        z-index: 12;
+    }
+
+    .punteada {
+        width: 375px;
+        z-index: 12;
+        padding-top: 9px;
+    }
 
     img {
         width: 35px;
@@ -150,6 +169,7 @@ strong {
     div {
         text-align: center;
         padding: 0;
+        margin: 0;
         z-index: 6;
     }
 
@@ -168,6 +188,7 @@ strong {
     .auxiliar {
         height: 5px;
         margin: 0;
+        padding: 0;
         div {
             z-index: 6;
         }
@@ -183,6 +204,7 @@ strong {
 
     .punteada {
         margin-top: 25px;
+        width: 375px;
     }
 
     .logo {
@@ -195,21 +217,22 @@ strong {
         height: 35px;
         text-align: center;
         font-family: KiplingRegular;
-        font-size: 11pt;
-        line-height: 22pt;
+        font-size: 100%;
+        /*line-height: 22pt;*/
         text-transform: uppercase;
         margin-top: 5px;
         margin-bottom: 5px;
         width: 80%;
+        -webkit-appearance: none;
     }
 
     .btn-entrar {
         background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
-        font-size: 12pt;
-        line-height: 24pt;
-        min-height: 35px;
+        font-size: 130%;
+        /*line-height: 24pt;*/
+        height: 35px;
         width: 80%;
         color: white;
         border: none;
@@ -227,8 +250,8 @@ strong {
         span {
             color: $gris;
             font-family: KiplingRegular;
-            font-size: 9pt;
-            line-height: 18pt;
+            font-size: 85%;
+            /*line-height: 18pt;*/
 
             strong {
                 text-transform: uppercase;
@@ -243,12 +266,69 @@ strong {
 
 }
 
+#recovery {
+
+    .punteada {
+        margin-top: 25px;
+        width: 375px;
+    }
+
+    .logo {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 134px;
+    }
+
+    input {
+        height: 35px;
+        text-align: center;
+        font-family: KiplingRegular;
+        font-size: 100%;
+        /*line-height: 22pt;*/
+        text-transform: uppercase;
+        margin-top: 5px;
+        margin-bottom: 35px;
+        width: 80%;
+        -webkit-appearance: none;
+    }
+
+    .btn-enviar {
+        background-color: $rosa-oscuro;
+        font-family: KiplingBold;
+        text-transform: uppercase;
+        font-size: 130%;
+        /*line-height: 24pt;*/
+        height: 35px;
+        width: 80%;
+        color: white;
+        border: none;
+    }
+
+    .label {
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        p {
+            color: $gris;
+            font-family: KiplingRegular;
+            font-size: 105%;
+            /*line-height: 18pt;*/
+
+            strong {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+}
+
 #login {
 
     background: $rosa-claro;
 
     .punteada {
         padding: 10px;
+        width: 375px;
     }
 
     .img-circulo {
@@ -312,9 +392,17 @@ strong {
     .def-footer {
 
         .title {
-            font-size: 10pt;
+            font-size: 85%;
         }
 
+    }
+
+    .btn-recovery {
+        color: $rosa-oscuro;
+        text-transform: uppercase;
+        font-size: 85%;
+        margin-top: 10px;
+        text-decoration: none;
     }
 
 }
@@ -326,20 +414,26 @@ strong {
         color: black;
     }
 
+    .avatar-row {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
     #avatar {
-        width: 110px;
+        width: 90px;
     }
 
     .username {
         font-family: KiplingBold;
-        font-size: 18pt;
+        font-size: 120%;
         text-transform: uppercase;
         color: $rosa-oscuro;
+        margin-bottom: 3px;
     }
 
     .editar-perfil {
         font-family: KiplingRegular;
-        font-size: 11pt;
+        font-size: 85%;
         margin-top: -4px;
         margin-bottom: 4px;
     }
@@ -347,7 +441,8 @@ strong {
     .puntaje {
 
         font-family: KiplingBold;
-        font-size: 16pt;
+        font-size: 115%;
+        margin: 0;
 
         span {
             color: $rosa-oscuro;
@@ -357,26 +452,29 @@ strong {
 
     .info-puntos {
         font-family: KiplingRegular;
-        font-size: 11pt;
+        font-size: 85%;
     }
 
     .separador {
-        width: 300px;
+        width: 375px;
         padding-top: 3px;
         padding-bottom: 3px;
     }
 
     .boton {
         font-family: KiplingBold;
-        font-size: 10pt;
-        width: 200px;
-        text-align: left;
+        font-size: 140%;
+        width: 100%;
+        text-align: center;
         padding-top: 3px;
         padding-bottom: 3px;
+        height: 70px;
+
+        .row {
+            height: 100%;
+        }
 
         img {
-            display: inline-block;
-            vertical-align: middle;
             width: 35px;
         }
 
@@ -384,6 +482,22 @@ strong {
             display: inline-block;
             vertical-align: middle;
             text-transform: uppercase;
+        }
+
+        .left {
+            display: -webkit-flex;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+
+            img {
+                margin-left: auto;
+            }
+        }
+
+        .right {
+            text-align: left;
+            -webkit-align-items: center;
+            display: -webkit-flex;
         }
     }
 
@@ -426,7 +540,16 @@ strong {
         width: 90px;
     }
 
+    .btn-back {
+        width: 15px;
+        position: absolute;
+        top: 115px;
+        left: 15px;
+    }
+
     #form {
+
+        margin-bottom: 10px;
 
         p {
             font-family: KiplingRegular;
@@ -448,6 +571,14 @@ strong {
 
     }
 
+    .btn-logout {
+        color: $rosa-oscuro;
+        text-transform: uppercase;
+        font-size: 85%;
+        /*margin-top: 5px;*/
+        text-decoration: none;
+    }
+
     .def-footer {
         .title {
             font-size: 12pt;
@@ -456,7 +587,51 @@ strong {
 
 }
 
-#modal-perfil {
+#modal-login {
+
+    color: white;
+
+    #btn-cerrar {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        img {
+            width: 20px;
+        }
+    }
+
+    .scroll-content .scroll {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        -webkit-justify-content: center;
+    }
+
+    .box {
+        background: white;
+        width: 80%;
+        /*height: auto;*/
+        border-radius: 10px;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .box p {
+        color: black;
+        font-family: Arial;
+        text-transform: uppercase;
+    }
+
+    .box a {
+        color: #1b7cba;
+        text-decoration: none;
+    }
+
+}
+
+#modal-unblock {
 
     color: white;
 
@@ -475,19 +650,81 @@ strong {
     }
 
     img {
-        width: 60px;
+        width: 70px;
+    }
+
+    .changuito-name {
+        font-family: KiplingBold;
+        font-size: 120%;
+    }
+
+    .label-unblock {
+        font-family: KiplingRegular;
+        font-size: 120%
+    }
+
+    .label-share {
+        font-family: gnyrwn971;
+        font-size: 200%;
+    }
+
+}
+
+#modal-change {
+
+    color: white;
+
+    #btn-cerrar {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        img {
+            width: 20px;
+        }
+    }
+
+    .avatar {
+        width: 200px;
+        padding-top: 150px;
+    }
+
+    .changuito-name {
+        font-family: KiplingBold;
+        font-size: 120%;
+    }
+
+    .label-change {
+        font-family: KiplingRegular;
+        font-size: 120%
+    }
+
+    img {
+        width: 70px;
     }
 
 }
 
 #cambiar-avatar {
 
+    .btn-back {
+        width: 15px;
+        position: absolute;
+        top: 115px;
+        left: 15px;
+    }
+
     h1 {
         font-family: KiplingBold;
-        color: $rosa-oscuro;
+        color: black;
         text-transform: uppercase;
         font-size: 16pt;
         text-align: center;
+    }
+
+    .separador {
+        width: 375px;
+        padding-top: 3px;
+        padding-bottom: 3px;
     }
 
     .img-avatar {
@@ -518,19 +755,21 @@ strong {
         position: relative;
     }
 
-    .avatar {
-        width: 75px;
+    .btn-back {
+        width: 15px;
+        position: absolute;
+        top: 115px;
+        left: 15px;
     }
 
     h1 {
         font-family: KiplingBold;
         text-transform: uppercase;
         font-size: 16pt;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        -webkit-transform: translate(0, -50%);
-        display: block;
+    }
+
+    .underline {
+        width: 375px;
     }
 
     .icono {
@@ -671,8 +910,8 @@ strong {
 #musica {
 
     .spotify {
-        width: 190px;
-        margin-top: 95px;
+        width: 275px;
+        margin-top: 150px;
         margin-bottom: 20px;
     }
 
@@ -684,7 +923,7 @@ strong {
         border: none;
         border-radius: 20px;
         font-family: KiplingBold;
-        font-size: 16pt;
+        font-size: 130%;
         height: 35px;
         width: 200px;
         padding-top: 9px;

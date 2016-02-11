@@ -1,0 +1,28 @@
+<ion-view id="recovery" class="bg-rosa-claro" ng-controller="RegisterCtrl">
+
+  <ion-content class="has-footer">
+
+    <img class="center punteada" src="img/punteadax.png" />
+
+    <img class="center logo" src="img/logo.png" />
+
+    <form class="list" ng-submit="register()">
+
+      <div class="center label">
+        <p>RECUPERAR CONTRASEÑA</p>
+        <p>Escribe tu correo electrónico registrado<br>para recuperar tu contraseña</p>
+      </div>
+
+      <input ng-model="user.email" class="center" type="email" name="email" placeholder="Correo electrónico" />
+
+      <button type="submit" class="button center btn-enviar">Enviar</button>
+
+    </form>
+
+  </ion-content>
+
+  <!-- <div class="bar bar-footer def-footer">
+    <div class="title">Completa tu información personal <a href="#"><strong>aquí</strong></a></div>
+  </div> -->
+
+</ion-view>

@@ -16,18 +16,21 @@
       </button>
 
       <form ng-submit="login()">
-        <p class="center texto">O entra con tu email</p>
+        <p class="center texto">O entra con tu mail</p>
 
         <input ng-model="user.email" class="center" type="email" name="email" placeholder="E-MAIL" />
         <input ng-model="user.password" class="center" type="password" name="password" placeholder="CONTRASEÑA" />
 
-        <p class="center texto">Tienes tarjeta física?</p>
+        <p class="center texto" ng-click="openModal()">¿Tienes tarjeta física?</p>
 
         <input class="center" type="text" name="id_tarjeta" placeholder="INTRODUCE TU ID" />
 
-        <button type="submit" class="button center btn-entrar">
+        <button type="submit" class="button center btn-entrar" ui-sref="loggedin.perfil">
           Entrar
         </button>
+
+        <a class="center btn-recovery" ui-sref="recovery">¿Olvidaste tu contraseña?</a>
+
       </form>
 
     </div>
@@ -39,3 +42,22 @@
   </div>
 
 </ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view class="full-modal bg-fucsia" id="modal-login">
+    <ion-content>
+
+      <a id="btn-cerrar" href="#" ng-click="closeModal()">
+        <img src="img/btn-cerrar.png" />
+      </a>
+
+      <div class="box center">
+        <p class="padding-top bold">¡UPS!</p>
+        <p class="padding-top">Tu usuario o contraseña son incorrectos</p>
+        <hr>
+        <p><a>Intentar de nuevo</a></p>
+      </div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>

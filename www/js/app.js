@@ -30,6 +30,12 @@ angular.module('kipling', ['ionic', 'kipling.controllers', 'ionic.utils'])
     controller: 'RegisterCtrl'
   })
 
+  .state('recovery', {
+    url: '/recovery',
+    templateUrl: 'templates/recovery.html',
+    controller: 'RecoveryCtrl'
+  })
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',

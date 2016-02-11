@@ -18,7 +18,7 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('RegisterCtrl', function($scope, $http) {
+.controller('RegisterCtrl', function($scope, $http, $state, $localStorage) {
     $scope.terms = 'off';
     $scope.user = {};
 
@@ -42,6 +42,8 @@ angular.module('kipling.controllers', [])
 
         $http.post('http://imaginista.mx/mobileadmin/public/user/register', $scope.user).then(function(resp){
             if (resp.data.status == 'ok') {
+                alert('Registro satisfactorio');
+                $localStorage.setObject('user', resp.data.user);
                 $state.go('loggedin.perfil');
             } else {
                 alert(resp.data.status);
@@ -52,13 +54,19 @@ angular.module('kipling.controllers', [])
     }
 })
 
-.controller('LoginCtrl', function($scope, $http, $state, $localstorage) {
+.controller('RecoveryCtrl', function($scope, $http, $state, $localStorage) {
+
+})
+
+.controller('LoginCtrl', function($scope, $http, $state, $localStorage, $ionicModal) {
+
     $scope.user = {};
 
     $scope.login = function(){
         $http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
             if (resp.data.status == 'ok') {
-                $localstorage.setObject('user', resp.data.user);
+                alert('Login satisfactorio');
+                $localStorage.setObject('user', resp.data.user);
                 $state.go('loggedin.perfil');
             } else {
                 alert(resp.data.status);
@@ -67,6 +75,21 @@ angular.module('kipling.controllers', [])
             alert(resp.data.status);
         });
     }
+
+    $ionicModal.fromTemplateUrl('my-modal.html', {
+        scope: $scope,
+        animation: 'fade-in'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
 
 })
 
@@ -89,20 +112,22 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('PerfilCtrl', function($scope) {
+.controller('PerfilCtrl', function($scope, $localStorage) {
+
+    $scope.user = $localStorage.getObject('user');
 
 })
 
-.controller('EditarCtrl', function($scope, $localstorage, $http, $state) {
+.controller('EditarCtrl', function($scope, $localStorage, $http, $state, $ionicHistory) {
 
     $scope.user = {};
 
-    $scope.user = $localstorage.getObject('user');
+    $scope.user = $localStorage.getObject('user');
 
     $scope.update = function(){
         $http.put('http://imaginista.mx/mobileadmin/public/user/update/' + $scope.user.id, $scope.user).then(function(resp){
             if (resp.data.status == 'ok') {
-                $localstorage.setObject('user', resp.data.user);
+                $localStorage.setObject('user', resp.data.user);
                 $state.go('loggedin.perfil');
             } else {
                 alert(resp.data.status);
@@ -112,13 +137,59 @@ angular.module('kipling.controllers', [])
         });
     }
 
+    $scope.goBack = function() {
+        $ionicHistory.goBack();
+    }
+
+    $scope.logout = function() {
+
+    }
+
 })
 
-.controller('CambiarAvatarCtrl', function($scope) {
+.controller('CambiarAvatarCtrl', function($scope, $ionicModal, $ionicHistory) {
+
+    $scope.goBack = function() {
+        $ionicHistory.goBack();
+    }
+
+    $ionicModal.fromTemplateUrl('modal-unblock.html', {
+        scope: $scope,
+        animation: 'fade-in'
+    }).then(function(modal) {
+        $scope.modalUnblock = modal;
+    });
+
+    $scope.openModalUnblock = function() {
+        $scope.modalUnblock.show();
+    };
+
+    $scope.closeModalUnblock = function() {
+        $scope.modalUnblock.hide();
+    };
+
+    $ionicModal.fromTemplateUrl('modal-change.html', {
+        scope: $scope,
+        animation: 'fade-in'
+    }).then(function(modal) {
+        $scope.modalChange = modal;
+    });
+
+    $scope.openModalChange = function() {
+        $scope.modalChange.show();
+    };
+
+    $scope.closeModalChange = function() {
+        $scope.modalChange.hide();
+    };
 
 })
 
-.controller('ActividadCtrl', function($scope) {
+.controller('ActividadCtrl', function($scope, $ionicHistory) {
+
+    $scope.goBack = function() {
+        $ionicHistory.goBack();
+    }
 
 })
 
