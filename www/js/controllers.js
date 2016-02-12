@@ -1,5 +1,13 @@
 angular.module('kipling.controllers', [])
 
+.constant('ApiEndpoint', {
+        url: 'http://localhost:8100/api'
+    })
+    // For the real endpoint, we'd use this
+    // .constant('ApiEndpoint', {
+    //  url: 'http://cors.api.com/api'
+    // })
+
 .controller('MainCtrl', function($scope) {
 
     $scope.activeTab = 'perfil';
@@ -40,7 +48,7 @@ angular.module('kipling.controllers', [])
     $scope.register = function() {
         $scope.user.terms = $scope.terms;
 
-        $http.post('http://imaginista.mx/mobileadmin/public/user/register', $scope.user).then(function(resp){
+        $http.post('http://imaginista.mx/mobileadmin/public/user/register', $scope.user).then(function(resp) {
             if (resp.data.status == 'ok') {
                 alert('Registro satisfactorio');
                 $localStorage.setObject('user', resp.data.user);
@@ -48,7 +56,7 @@ angular.module('kipling.controllers', [])
             } else {
                 alert(resp.data.status);
             }
-        }, function(resp){
+        }, function(resp) {
             alert(resp.data.status);
         });
     }
@@ -62,18 +70,23 @@ angular.module('kipling.controllers', [])
 
     $scope.user = {};
 
-    $scope.login = function(){
-        $http.post('http://imaginista.mx/mobileadmin/public/user/login', $scope.user).then(function(resp){
-            if (resp.data.status == 'ok') {
-                alert('Login satisfactorio');
-                $localStorage.setObject('user', resp.data.user);
-                $state.go('loggedin.perfil');
-            } else {
+    $scope.login = function() {
+        $http.post(ApiEndpoint.url + '/login', {
+            "user": $scope.user.email,
+            "pass": $scope.user.password
+        }).then(function(resp) {
+                if (resp.status === 200 && resp.data === true) {
+                    $localstorage.setObject('user', $scope.user);
+                    $state.go('loggedin.blog');
+                } else {
+                    alert(
+                        'El e-mail o contraseña ingresados, no son correctos '
+                    );
+                }
+            },
+            function(resp) {
                 alert(resp.data.status);
-            }
-        }, function(resp){
-            alert(resp.data.status);
-        });
+            });
     }
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
@@ -112,9 +125,23 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('PerfilCtrl', function($scope, $localStorage) {
+.controller('PerfilCtrl', function($scope, $http, ApiEndpoint,
+    $localstorage) {
+    $scope.user = $localstorage.getObject('user');
 
-    $scope.user = $localStorage.getObject('user');
+
+    $http.post(ApiEndpoint.url + '/pointsByUser', {
+        "mail": $scope.user.email
+    }).then(function(resp) {
+        if (resp.status === 200) {
+            $scope.user.points = resp.data;
+        } else {
+            alert('Error inesperado');
+            console.log("Response", resp);
+        }
+    }, function(resp) {
+        alert(resp.data.status);
+    });
 
 })
 
@@ -132,7 +159,7 @@ angular.module('kipling.controllers', [])
             } else {
                 alert(resp.data.status);
             }
-        }, function(resp){
+        }, function(resp) {
             alert(resp.data.status);
         });
     }
@@ -209,6 +236,8 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('BlogCtrl', function($scope) {
-
+.controller('BlogCtrl', function($scope, blogService) {
+    blogService.getTopTen().then(function(topeTenItems) {
+        $scope.topTen = topeTenItems;
+    });
 })
