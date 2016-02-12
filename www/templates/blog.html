@@ -33,6 +33,88 @@
         </div>
 
     </div>
+    <div class="row separador-ondas">
+      <div class="col ondas"></div>
+      <div class="col-center "><h1>LOS MÁS VISTOS</h1></div>
+      <div class="col ondas"></div>
+    </div>
+
+    <!-- <ion-item collection-repeat="item in topTen"> -->
+    <div ng-repeat="item in topTen">
+      <div class="row">
+          <div class="col">
+            <img class="blog-button-bg" src="img/blog-post-01.png" />
+            <div class="blog-post-header">
+              <h1 class="blog-header-title">{{item.title}}</h1>
+              <ul class="category-list">
+                <li ng-repeat="category in item.categories">{{category}}<span ng-show="!$last">, </span></li>
+              </ul>
+              <span class="blog-header-text">{{item.pubDate | date:"d 'de' MMMM, yyyy"}}</span>
+              <div class="row blog-post-rating">
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-on.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-off.png" />
+                </div>
+                <div class="col">
+                  <img src="img/blog-star-off.png" />
+                </div>
+              </div>
+              <p class="blog-header-text">Por {{item.author}}</p>
+            </div>
+          </div>
+      </div>
+      <div class="row blog-post-content">
+        <div class="col padding">
+          {{item.description}}
+        </div>
+        <div class="coll separador-vertical" ></div>
+        <div class="col-25 col-center leer-mas" >Leer Más</div>
+      </div>
+   <!-- </ion-item> -->
+</div>
+
+
+    <!-- categorias -->
+    <div class="row responsive-sm responsive-mg responsive-ld blog-categories">
+      <div class="col">
+        <div class="row">
+          <div class="col blog-category active">Nuevo</div>
+          <div class="col blog-category">Belleza</div>
+          <div class="col blog-category">Viaje</div>
+          <div class="col blog-category">Tips</div>
+          <div class="col blog-category">Lanzamientos</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col blog-category">Fashion</div>
+          <div class="col blog-category">Tendencias</div>
+          <div class="col blog-category">Bolso</div>
+          <div class="col blog-category">Cuidados</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="row blog-footer">
+      <div class="col">Moda</div>
+      <div class="col">|</div>
+      <div class="col col-33">Vida y Estilo</div>
+      <div class="col">|</div>
+      <div class="col">Travesía</div>
+      <div class="col">|</div>
+      <div class="col">Detalles</div>
+    </div>
+    <div class="row blog-footer-ending">
+    </div>
 
   </ion-content>
 
