@@ -76,7 +76,7 @@ angular.module('kipling.controllers', [])
             "pass": $scope.user.password
         }).then(function(resp) {
                 if (resp.status === 200 && resp.data === true) {
-                    $localstorage.setObject('user', $scope.user);
+                    $localStorage.setObject('user', $scope.user);
                     $state.go('loggedin.blog');
                 } else {
                     alert(
@@ -126,8 +126,8 @@ angular.module('kipling.controllers', [])
 })
 
 .controller('PerfilCtrl', function($scope, $http, ApiEndpoint,
-    $localstorage) {
-    $scope.user = $localstorage.getObject('user');
+    $localStorage) {
+    $scope.user = $localStorage.getObject('user');
 
 
     $http.post(ApiEndpoint.url + '/pointsByUser', {
