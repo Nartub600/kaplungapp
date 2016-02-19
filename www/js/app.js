@@ -6,16 +6,16 @@
 angular.module('kipling', ['ionic', 'kipling.controllers', 'kipling.services', 'ionic.utils'])
 
 .run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+    $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if (window.StatusBar) {
+            StatusBar.styleDefault();
+        }
+    });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -30,17 +30,17 @@ angular.module('kipling', ['ionic', 'kipling.controllers', 'kipling.services', '
         controller: 'RegisterCtrl'
     })
 
-  .state('recovery', {
-    url: '/recovery',
-    templateUrl: 'templates/recovery.html',
-    controller: 'RecoveryCtrl'
-  })
+    .state('recovery', {
+        url: '/recovery',
+        templateUrl: 'templates/recovery.html',
+        controller: 'RecoveryCtrl'
+    })
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
-  })
+    .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+    })
 
     .state('loggedin', {
         url: '/loggedin',
@@ -137,4 +137,13 @@ angular.module('kipling', ['ionic', 'kipling.controllers', 'kipling.services', '
         }
     })
 
+    .state('loggedin.blog-detail', {
+        url: '/blog-detail',
+        views: {
+            'loggedin': {
+                templateUrl: 'templates/blog-detail.html',
+                controller: 'BlogDetailCtrl'
+            }
+        }
+    })
 })
