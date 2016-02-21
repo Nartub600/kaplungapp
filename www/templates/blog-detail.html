@@ -1,4 +1,4 @@
-<ion-view class="pagina" id="blog-detail" ng-controller="BlogDetailCtrl">
+<ion-view class="pagina" id="blog-detail" cache-view="false">
 
   <ion-content>
 
@@ -10,12 +10,12 @@
         <div class="bg">
             <img class="center" src="img/post-header.png" />
         </div>
-        <h1>Kipling es todo lo que necesito</h1>
+        <h1>{{post.title}}</h1>
     </div>
 
     <div class="content">
         <h2 class="category"><span>Style</span> - 01 de Julio, 2014</h2>
-        <h3>Por Diana</h3>
+        <h3>Por {{post.author}}</h3>
         <ul class="rating">
           <li><img src="img/blog-star-on.png" /></li>
           <li><img src="img/blog-star-on.png" /></li>
@@ -23,11 +23,10 @@
           <li><img src="img/blog-star-off.png" /></li>
           <li><img src="img/blog-star-off.png" /></li>
       </ul>
-      <p class="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p class="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="center">{{post.description}}</p>
       <div class="pager">
-          <span>< Anterior</span>
-          <span>Siguiente ></span>
+          <span ng-hide="hasPrevious" ng-click="move(-1)">< Anterior</span>
+          <span ng-hide="hasNext" ng-click="move(1)">Siguiente ></span>
       </div>
 
       <h2 class="center header-section">Tags</h2>

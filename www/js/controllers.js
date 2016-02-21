@@ -248,10 +248,16 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('BlogCtrl', function($scope, blogService, $ionicPopup) {
-    //TODO: averiguar por que mierda se ejecuta dos veces
-    blogService.getTopTen().then(function(topeTenItems) {
-        $scope.topTen = topeTenItems;
+.controller('BlogCtrl', function($scope, blogService, $ionicPopup, $localStorage, $state) {
+    blogService.getTopTenFeed().then(function(items) {
+        $scope.feed = items;
+
+        $scope.viewPost = function(i) {
+            blogService.getPost(i).then(function(item) {
+                $state.go('loggedin.blog-detail');
+            });
+        };
+
     }, function(e) {
         $ionicPopup.show({
             title: 'Por favor verifica que tu dispositivo esté conectado a Internet',
@@ -264,6 +270,22 @@ angular.module('kipling.controllers', [])
     });
 })
 
-.controller('BlogDetailCtrl', function($scope, blogService, $ionicPopup) {
+.controller('BlogDetailCtrl', function($scope, blogService, $state, $localStorage) {
+    $scope.post = blogService.getPost();
+    $scope.hasNext = !blogService.hasNext();
+    $scope.hasPrevious = !blogService.hasPrevious();
 
+    console.log('hasNext', blogService.hasNext());
+    console.log('hasPrevious', blogService.hasPrevious());
+
+    $scope.move = function(i) {
+        if (i > 0) {
+            blogService.loadNext()
+        } else {
+            blogService.loadPrevious()
+        };
+        $state.go($state.current, {}, {
+            reload: true
+        });
+    };
 });
