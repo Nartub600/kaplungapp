@@ -24,23 +24,23 @@ angular.module('kipling', ['ionic', 'kipling.controllers', 'kipling.services', '
 
     $stateProvider
 
-        .state('register', {
+    .state('register', {
         url: '/register',
         templateUrl: 'templates/register.html',
         controller: 'RegisterCtrl'
     })
 
-  .state('recovery', {
-    url: '/recovery',
-    templateUrl: 'templates/recovery.html',
-    controller: 'RecoveryCtrl'
-  })
+    .state('recovery', {
+        url: '/recovery',
+        templateUrl: 'templates/recovery.html',
+        controller: 'RecoveryCtrl'
+    })
 
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
-  })
+    .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+    })
 
     .state('loggedin', {
         url: '/loggedin',

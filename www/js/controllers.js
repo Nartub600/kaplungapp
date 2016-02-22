@@ -125,24 +125,33 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('PerfilCtrl', function($scope, $http, ApiEndpoint,
-    $localStorage) {
+.controller('PerfilCtrl', function($scope, $http, ApiEndpoint, $localStorage) {
     $scope.user = $localStorage.getObject('user');
 
+    // $http.post(ApiEndpoint.url + '/pointsByUser', {
+    //     "mail": $scope.user.email
+    // }).then(function(resp) {
+    //     if (resp.status === 200) {
+    //         $scope.user.points = resp.data;
+    //     } else {
+    //         alert('Error inesperado');
+    //         console.log("Response", resp);
+    //     }
+    // }, function(resp) {
+    //     alert(resp.data.status);
+    // });
 
-    $http.post(ApiEndpoint.url + '/pointsByUser', {
-        "mail": $scope.user.email
-    }).then(function(resp) {
-        if (resp.status === 200) {
-            $scope.user.points = resp.data;
-        } else {
-            alert('Error inesperado');
-            console.log("Response", resp);
+    $scope.actualFooterBottom = 0;
+
+    $scope.onDrag = function(event) {
+        $scope.footerBottom = {
+            'transform': 'translateY(' + ($scope.actualFooterBottom + event.gesture.deltaY) + 'px)'
         }
-    }, function(resp) {
-        alert(resp.data.status);
-    });
+    }
 
+    $scope.onRelease = function(event) {
+        $scope.actualFooterBottom = $scope.actualFooterBottom + event.gesture.deltaY;
+    }
 })
 
 .controller('EditarCtrl', function($scope, $localStorage, $http, $state, $ionicHistory) {

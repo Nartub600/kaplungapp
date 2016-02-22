@@ -1,6 +1,6 @@
 {
   "name": "kiplingapp",
-  "app_id": "555c2987",
+  "app_id": "01b809cd",
   "gulpStartupTasks": [
     "sass",
     "watch"
@@ -12,7 +12,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl" : "http://imaginista.mx/services"
+      "proxyUrl": "http://imaginista.mx/services"
     }
   ]
 }

@@ -172,6 +172,8 @@ strong {
         text-align: center;
         padding: 0;
         margin: 0;
+        border: none;
+        outline: none;
         z-index: 6;
     }
 
@@ -234,10 +236,13 @@ strong {
         text-transform: uppercase;
         font-size: 130%;
         /*line-height: 24pt;*/
-        height: 35px;
+        min-height: 35px;
         width: 80%;
         color: white;
         border: none;
+        span {
+            vertical-align: -webkit-baseline-middle;
+        }
     }
 
     .chk-terms {
@@ -300,10 +305,13 @@ strong {
         text-transform: uppercase;
         font-size: 130%;
         /*line-height: 24pt;*/
-        height: 35px;
+        min-height: 35px;
         width: 80%;
         color: white;
         border: none;
+        span {
+            vertical-align: -webkit-baseline-middle;
+        }
     }
 
     .label {
@@ -344,7 +352,7 @@ strong {
 
     .btn-fb {
         font-family: KiplingRegular;
-        font-size: 10pt;
+        font-size: 100%;
         line-height: 20pt;
         min-height: 35px;
         width: 80%;
@@ -354,14 +362,14 @@ strong {
         margin-bottom: 5px;
 
         span {
-            font-size: 12pt;
+            font-size: 130%;
             font-family: KiplingBold;
         }
     }
 
     .texto {
         font-family: KiplingRegular;
-        font-size: 11pt;
+        font-size: 90%;
         text-transform: uppercase;
         margin: 0;
         padding-top: 3px;
@@ -371,20 +379,24 @@ strong {
         background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
-        font-size: 12pt;
-        line-height: 24pt;
+        font-size: 130%;
+        /*line-height: 24pt;*/
         min-height: 35px;
         width: 80%;
         color: white;
         border: none;
+        margin-top: 5px;
+        span {
+            vertical-align: -webkit-baseline-middle;
+        }
     }
 
     input {
         height: 30px;
         text-align: center;
         font-family: KiplingRegular;
-        font-size: 11pt;
-        line-height: 22pt;
+        font-size: 100%;
+        /*line-height: 22pt;*/
         text-transform: uppercase;
         margin-top: 5px;
         margin-bottom: 5px;
@@ -392,19 +404,19 @@ strong {
     }
 
     .def-footer {
-
         .title {
-            font-size: 85%;
+            font-size: 80%;
         }
-
     }
 
     .btn-recovery {
         color: $rosa-oscuro;
         text-transform: uppercase;
-        font-size: 85%;
-        margin-top: 10px;
+        font-size: 90%;
+        margin-top: 5px;
         text-decoration: none;
+        font-family: KiplingRegular;
+        font-size: 90%;
     }
 
 }
@@ -503,37 +515,105 @@ strong {
         }
     }
 
-    .footer {
-        position: absolute;
-        bottom: 0;
+
+}
+
+.perfil-footer {
+    position: absolute;
+    bottom: -642px;
+    width: 100%;
+    padding: 0;
+    z-index: 15;
+
+    .semicirculo {
+        width: 70px;
+    }
+
+    .texto-footer {
+        background: $rosa-medio;
         width: 100%;
-        height: 85px;
         padding: 0;
-
-        .boton-footer {
-            width: 70px;
-        }
-
-        .texto-footer {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            p {
-                font-family: KiplingBold;
-                font-size: 12pt;
-                text-transform: uppercase;
-                color: white;
-                margin: 0;
-                padding-top: 6px;
-                padding-bottom: 1px;
-            }
-
-            img {
-                width: 350px;
-            }
+        p {
+            font-family: KiplingBold;
+            font-size: 120%;
+            text-transform: uppercase;
+            color: white;
+            margin: 0;
+            padding-top: 5px;
         }
     }
 
+    .tarjeta-outer {
+        background-color: $rosa-medio;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    .tarjeta-inner {
+        width: 348px;
+        height: 637px;
+        background-image: url("../img/card-border.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 5px;
+        .card-terms {
+            transform: rotate(-90deg) translateX(-260px) translateY(-225px);
+            transform-origin: center center 0;
+            width: 600px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: KiplingRegular;
+            font-size: 90%;
+        }
+
+        .kipling-addy {
+            font-family: KiplingRegular;
+            font-size: 130%;
+            text-transform: uppercase;
+            color: $gris;
+            transform: rotate(-90deg) translateX(-170px) translateY(0px);
+            transform-origin: center center 0;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            transform: rotate(-90deg) translateX(-100px) translateY(100px);
+            transform-origin: center center 0;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .right {
+            text-align: center;
+            transform: rotate(0deg) translateX(40px) translateY(15px);
+            transform-origin: center center 0;
+            p {
+                text-transform: uppercase;
+                font-family: KiplingRegular;
+            }
+            .titulo {
+                color: $gris;
+                font-size: 130%;
+            }
+            .numero {
+                color: white;
+                font-size: 150%;
+                font-style: italic;
+            }
+        }
+    }
 }
 
 #editar {
@@ -577,7 +657,7 @@ strong {
         color: $rosa-oscuro;
         text-transform: uppercase;
         font-size: 85%;
-        /*margin-top: 5px;*/
+        font-family: KiplingRegular;
         text-decoration: none;
     }
 
