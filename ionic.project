@@ -1,18 +1,19 @@
 {
-  "name": "kiplingapp",
-  "app_id": "01b809cd",
-  "gulpStartupTasks": [
-    "sass",
-    "watch"
-  ],
-  "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*"
-  ],
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "http://imaginista.mx/services"
-    }
-  ]
+    "name": "kiplingapp",
+    "app_id": "01b809cd",
+    "gulpStartupTasks": [
+        "sass",
+        "watch"
+    ],
+    "watchPatterns": [
+        "www/**/*",
+        "!www/lib/**/*"
+    ],
+    "proxies": [{
+        "path": "/api",
+        "proxyUrl": "http://imaginista.mx/services"
+    }, {
+        "path": "/blog",
+        "proxyUrl": "http://imaginista.mx/blog"
+    }]
 }

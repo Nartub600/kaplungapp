@@ -1,0 +1,86 @@
+<ion-view class="pagina" id="blog-detail" cache-view="false">
+
+  <ion-content>
+
+    <div class="helper"></div>
+    <div class="header">
+        <div class="logo">
+            <img class="center" src="img/post-header-logo.png" />
+        </div>
+        <div class="bg">
+            <img class="center" src="img/post-header.png" />
+        </div>
+        <h1>{{post.title}}</h1>
+    </div>
+
+    <div class="content">
+        <h2 class="category"><span>Style</span> - 01 de Julio, 2014</h2>
+        <h3>Por {{post.author}}</h3>
+        <ul class="rating">
+          <li><img src="img/blog-star-on.png" /></li>
+          <li><img src="img/blog-star-on.png" /></li>
+          <li><img src="img/blog-star-on.png" /></li>
+          <li><img src="img/blog-star-off.png" /></li>
+          <li><img src="img/blog-star-off.png" /></li>
+      </ul>
+      <p class="center">{{post.description}}</p>
+      <div class="pager">
+          <span ng-hide="hasPrevious" ng-click="move(-1)">< Anterior</span>
+          <span ng-hide="hasNext" ng-click="move(1)">Siguiente ></span>
+      </div>
+
+      <h2 class="center header-section">Tags</h2>
+      <div class="row responsive-sm responsive-mg responsive-ld blog-categories">
+        <div class="col">
+          <div class="row">
+            <div class="col blog-category active">Nuevo</div>
+            <div class="col blog-category">Belleza</div>
+            <div class="col blog-category">Viaje</div>
+            <div class="col blog-category">Tips</div>
+            <div class="col blog-category">Lanzamientos</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col blog-category">Fashion</div>
+            <div class="col blog-category">Tendencias</div>
+            <div class="col blog-category">Bolso</div>
+            <div class="col blog-category">Cuidados</div>
+          </div>
+        </div>
+      </div>
+      <h3 class="center subheader-section">También te puede interesar</h3>
+  </ion-content>
+  <div class="row responsive-sm responsive-mg responsive-ld related">
+      <div class="row">
+          <div class="col col-20,">
+              <img src="img/blog-detail-others.jpg" />
+              <h1>Kippling es todo lo que necesito</h1>
+          </div>
+          <div class="col col-20,">
+              <img src="img/blog-detail-others.jpg" />
+              <h1>Kippling es todo lo que necesito</h1>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col col-20,">
+              <img src="img/blog-detail-others.jpg" />
+              <h1>Kippling es todo lo que necesito</h1>
+          </div>
+          <div class="col col-20,">
+              <img src="img/blog-detail-others.jpg" />
+              <h1>Kippling es todo lo que necesito</h1>
+          </div>
+      </div>
+  </div>
+
+  <div class="row blog-footer responsive-sm responsive-mg responsive-ld">
+      <div class="row">
+        <div class="col col-10">Moda</div>
+        <div class="col col-10">Vida y Estilo</div>
+        <div class="col col-10">Travesía</div>
+        <div class="col col-10"><span>Detalles<span/></div>
+      </div>
+    </div>
+  <div class="row blog-footer-ending">
+</ion-view>

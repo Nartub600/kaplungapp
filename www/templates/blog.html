@@ -1,13 +1,9 @@
-<ion-view class="pagina" id="blog" ng-controller="BlogCtrl">
-
+<ion-view class="pagina" id="blog" >
   <ion-content>
 
     <div class="helper"></div>
-
     <img class="center title" src="img/blog-title.png" />
-
     <div class="row">
-
         <div class="col left">
             <img class="blog-button-bg" src="img/blog-01.png" />
             <div class="blog-button">Tips de belleza</div>
@@ -21,12 +17,10 @@
     </div>
 
     <div class="row">
-
         <div class="col left">
             <img class="blog-button-bg" src="img/blog-03.png" />
             <div class="blog-button">Viajes</div>
         </div>
-
         <div class="col right">
             <img class="blog-button-bg" src="img/blog-04.png" />
             <div class="blog-button">Eventos</div>
@@ -40,7 +34,7 @@
     </div>
 
     <!-- <ion-item collection-repeat="item in topTen"> -->
-    <div ng-repeat="item in topTen">
+    <div ng-repeat="item in feed">
       <div class="row">
           <div class="col">
             <img class="blog-button-bg" src="img/blog-post-01.png" />
@@ -76,7 +70,7 @@
           {{item.description}}
         </div>
         <div class="coll separador-vertical" ></div>
-        <div class="col-25 col-center leer-mas" >Leer Más</div>
+        <div ng-click="viewPost($index)" class="col-25 col-center leer-mas" >Leer Más</div>
       </div>
    <!-- </ion-item> -->
 </div>
@@ -113,9 +107,7 @@
       <div class="col">|</div>
       <div class="col">Detalles</div>
     </div>
-    <div class="row blog-footer-ending">
-    </div>
+    <div class="row blog-footer-ending"></div>
 
   </ion-content>
-
 </ion-view>

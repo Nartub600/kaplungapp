@@ -66,7 +66,7 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope, $http, $state, $localStorage, $ionicModal) {
+.controller('LoginCtrl', function($scope, $http, $state, $localStorage, $ionicModal, ApiEndpoint, $ionicPopup) {
 
     $scope.user = {};
 
@@ -77,15 +77,27 @@ angular.module('kipling.controllers', [])
         }).then(function(resp) {
                 if (resp.status === 200 && resp.data === true) {
                     $localStorage.setObject('user', $scope.user);
-                    $state.go('loggedin.blog');
+                    $state.go('loggedin.perfil');
                 } else {
-                    alert(
-                        'El e-mail o contraseña ingresados, no son correctos '
-                    );
+                    //TODO: dar aspecto de kipling, hacelo reutilizable
+                    $ionicPopup.show({
+                        title: 'El e-mail o contraseña ingresados, no son correctos ',
+                        buttons: [{
+                            type: 'button-positive',
+                            text: 'Aceptar'
+                        }]
+                    });
                 }
             },
+            //TODO: dar aspecto de kipling, hacelo reutilizable
             function(resp) {
-                alert(resp.data.status);
+                $ionicPopup.show({
+                    title: 'Por favor verifica que tu dispositivo esté conectado a Internet',
+                    buttons: [{
+                        type: 'button-positive',
+                        text: 'Aceptar'
+                    }]
+                });
             });
     }
 
@@ -160,8 +172,8 @@ angular.module('kipling.controllers', [])
 
     $scope.user = $localStorage.getObject('user');
 
-    $scope.update = function(){
-        $http.put('http://imaginista.mx/mobileadmin/public/user/update/' + $scope.user.id, $scope.user).then(function(resp){
+    $scope.update = function() {
+        $http.put('http://imaginista.mx/mobileadmin/public/user/update/' + $scope.user.id, $scope.user).then(function(resp) {
             if (resp.data.status == 'ok') {
                 $localStorage.setObject('user', resp.data.user);
                 $state.go('loggedin.perfil');
@@ -245,8 +257,44 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('BlogCtrl', function($scope, blogService) {
-    blogService.getTopTen().then(function(topeTenItems) {
-        $scope.topTen = topeTenItems;
+.controller('BlogCtrl', function($scope, blogService, $ionicPopup, $localStorage, $state) {
+    blogService.getTopTenFeed().then(function(items) {
+        $scope.feed = items;
+
+        $scope.viewPost = function(i) {
+            blogService.getPost(i).then(function(item) {
+                $state.go('loggedin.blog-detail');
+            });
+        };
+
+    }, function(e) {
+        $ionicPopup.show({
+            title: 'Por favor verifica que tu dispositivo esté conectado a Internet',
+            buttons: [{
+                type: 'button-positive',
+                text: 'Aceptar'
+            }]
+        });
+        console.log('Error', e);
     });
 })
+
+.controller('BlogDetailCtrl', function($scope, blogService, $state, $localStorage) {
+    $scope.post = blogService.getPost();
+    $scope.hasNext = !blogService.hasNext();
+    $scope.hasPrevious = !blogService.hasPrevious();
+
+    console.log('hasNext', blogService.hasNext());
+    console.log('hasPrevious', blogService.hasPrevious());
+
+    $scope.move = function(i) {
+        if (i > 0) {
+            blogService.loadNext()
+        } else {
+            blogService.loadPrevious()
+        };
+        $state.go($state.current, {}, {
+            reload: true
+        });
+    };
+});

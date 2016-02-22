@@ -2,7 +2,7 @@
 
   <ion-content class="has-footer">
 
-    <div class="bg-blanco">
+    <div class="bg-blanco" ng-click="openModal()">
       <img class="center img-circulo" src="img/circulo.png" />
       <img class="center img-animales" src="img/animales.png" />
     </div>
@@ -21,12 +21,12 @@
         <input ng-model="user.email" class="center" type="email" name="email" placeholder="E-MAIL" />
         <input ng-model="user.password" class="center" type="password" name="password" placeholder="CONTRASEÑA" />
 
-        <p class="center texto" ng-click="openModal()">¿Tienes tarjeta física?</p>
+        <p class="center texto">¿Tienes tarjeta física?</p>
 
         <input class="center" type="text" name="id_tarjeta" placeholder="INTRODUCE TU ID" />
 
         <button type="submit" class="button center btn-entrar" ui-sref="loggedin.perfil">
-          Entrar
+          <span>Entrar</span>
         </button>
 
         <a class="center btn-recovery" ui-sref="recovery">¿Olvidaste tu contraseña?</a>
@@ -55,7 +55,7 @@
         <p class="padding-top bold">¡UPS!</p>
         <p class="padding-top">Tu usuario o contraseña son incorrectos</p>
         <hr>
-        <p><a>Intentar de nuevo</a></p>
+        <p><a ng-click="closeModal()">Intentar de nuevo</a></p>
       </div>
 
     </ion-content>

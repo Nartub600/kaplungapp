@@ -1,10 +1,4 @@
-<ion-view class="pagina" id="perfil" ng-controller="PerfilCtrl">
-
-  <!-- <div class="row bg-rosa-claro">
-
-    <img class="center punteada" src="img/punteada.png" />
-
-  </div> -->
+<ion-view id="perfil" ng-controller="PerfilCtrl">
 
   <ion-content class="has-footer">
 
@@ -73,12 +67,30 @@
 
   </ion-content>
 
-  <div class="footer">
-    <img class="center boton-footer" src="img/semicirculo.png" />
-    <div class="texto-footer bg-rosa-medio">
-      <p class="center">Desliza para ver tu tarjeta</p>
-      <img class="center" src="img/punteada-footer.png" />
+</ion-view>
+
+<div class="perfil-footer" ng-style="footerBottom" on-drag="onDrag($event)" on-release="onRelease($event)">
+  <img class="center semicirculo" src="img/semicirculo.png" />
+  <div class="texto-footer">
+    <p class="center">Desliza para ver tu tarjeta</p>
+  </div>
+  <div class="tarjeta-outer">
+    <div class="tarjeta-inner">
+      <p class="card-terms">
+        Esta tarjeta no es de crédito o débito, sólo puede ser usada como medio de pago de mercancía en Boutiques Kipling. Esta tarjeta es solamente de afiliación y constituye la aceptación de los términos y condiciones del programa de Lealtad de Kipling.<br>
+        No nos hacemos responsables en caso de robo o extravió de la tarjeta, ni por mal uso que se haga de ella, toda vez que es responsabilidad del Cliente que la recibió.<br>
+        En caso de dudas o aclaraciones comunicarse al correo: servicioalcliente@kiplingmexico.com
+      </p>
+      <p class="kipling-addy">www.kiplingmexico.com</p>
+      <div class="row">
+        <div class="col">
+          <img class="logo" src="img/logo.png" />
+        </div>
+        <div class="col right">
+          <p class="titulo">Kipling id:</p>
+          <p class="numero">00 00 00</p>
+        </div>
+      </div>
     </div>
   </div>
-
-</ion-view>
+</div>
