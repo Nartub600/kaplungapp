@@ -66,7 +66,7 @@ angular.module('kipling.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope, $http, $state, $localStorage, $ionicModal, ApiEndpoint, $ionicPopup) {
+.controller('LoginCtrl', function($scope, $http, $state, $localStorage, ApiEndpoint, $ionicPopup) {
 
     $scope.user = {};
 
@@ -79,42 +79,29 @@ angular.module('kipling.controllers', [])
                     $localStorage.setObject('user', $scope.user);
                     $state.go('loggedin.perfil');
                 } else {
-                    //TODO: dar aspecto de kipling, hacelo reutilizable
                     $ionicPopup.show({
-                        title: 'El e-mail o contraseña ingresados, no son correctos ',
+                        title: '¡UPS!',
+                        subTitle: 'Tu usuario o contraseña son incorrectos',
+                        cssClass: 'kipling-popup',
                         buttons: [{
-                            type: 'button-positive',
-                            text: 'Aceptar'
+                            type: 'button-clear button-positive',
+                            text: 'Intentar de nuevo'
                         }]
                     });
                 }
             },
-            //TODO: dar aspecto de kipling, hacelo reutilizable
             function(resp) {
                 $ionicPopup.show({
-                    title: 'Por favor verifica que tu dispositivo esté conectado a Internet',
+                    title: '¡UPS!',
+                    subTitle: 'Por favor verifica que tu dispositivo esté conectado a Internet',
+                    cssClass: 'kipling-popup',
                     buttons: [{
-                        type: 'button-positive',
-                        text: 'Aceptar'
+                        type: 'button-clear button-positive',
+                        text: 'Intentar de nuevo'
                     }]
                 });
             });
     }
-
-    $ionicModal.fromTemplateUrl('my-modal.html', {
-        scope: $scope,
-        animation: 'fade-in'
-    }).then(function(modal) {
-        $scope.modal = modal;
-    });
-
-    $scope.openModal = function() {
-        $scope.modal.show();
-    };
-
-    $scope.closeModal = function() {
-        $scope.modal.hide();
-    };
 
 })
 

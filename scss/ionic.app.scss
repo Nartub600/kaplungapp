@@ -59,6 +59,7 @@ $rosa-tenue: #e0b5c8 !default;
 $rosa-oscuro: #e35a8e !default;
 $fucsia: rgba(#a5304d, .9) !default;
 $gris: #6d6e70 !default;
+$gris-clarito: #bfb8ba !default;
 $gris-claro: #e4e3e3 !default;
 $azul-fb: #4868ad !default;
 
@@ -144,7 +145,7 @@ strong {
     width: 100%;
     z-index: 6;
 
-    .punteada-container {
+    /*.punteada-container {
         position: absolute;
         display: -webkit-flex;
         display: flex;
@@ -156,12 +157,19 @@ strong {
         justify-content: center;
         width: 100%;
         z-index: 12;
-    }
+    }*/
 
-    .punteada {
+    /*.punteada {
         width: 375px;
         z-index: 12;
         padding-top: 9px;
+    }*/
+
+    .punteada {
+        width: 100%;
+        border: 1px dashed white;
+        position: absolute;
+        z-index: 12;
     }
 
     img {
@@ -277,8 +285,8 @@ strong {
 #recovery {
 
     .punteada {
-        margin-top: 25px;
-        width: 375px;
+        width: 100%;
+        border: 1px dashed white;
     }
 
     .logo {
@@ -337,26 +345,33 @@ strong {
 
     background: $rosa-claro;
 
+    .header-container {
+        background: white;
+
+        .img-circulo {
+            width: 250px;
+        }
+
+        .img-animales {
+            width: 375px;
+            margin-top: -85px;
+        }
+    }
+
     .punteada {
-        padding: 10px;
-        width: 375px;
-    }
-
-    .img-circulo {
-        width: 250px;
-    }
-
-    .img-animales {
-        width: 375px;
-        margin-top: -85px;
+        width: 100%;
+        border: 1px dashed white;
     }
 
     .btn-fb {
+        width: 75%;
+        @media (min-width: 376px) {
+            width: 40%;
+        }
         font-family: KiplingRegular;
         font-size: 100%;
         line-height: 20pt;
         min-height: 35px;
-        width: 80%;
         color: white;
         background-color: $azul-fb;
         border: none;
@@ -377,13 +392,16 @@ strong {
     }
 
     .btn-entrar {
+        width: 75%;
+        @media (min-width: 376px) {
+            width: 40%;
+        }
         background-color: $rosa-oscuro;
         font-family: KiplingBold;
         text-transform: uppercase;
         font-size: 130%;
         /*line-height: 24pt;*/
         min-height: 35px;
-        width: 80%;
         color: white;
         border: none;
         margin-top: 5px;
@@ -393,15 +411,17 @@ strong {
     }
 
     input {
+        width: 75%;
+        @media (min-width: 376px) {
+            width: 40%;
+        }
         height: 30px;
         text-align: center;
         font-family: KiplingRegular;
         font-size: 100%;
-        /*line-height: 22pt;*/
         text-transform: uppercase;
         margin-top: 5px;
         margin-bottom: 5px;
-        width: 80%;
     }
 
     .def-footer {
@@ -670,46 +690,31 @@ strong {
 
 }
 
-#modal-login {
+.kipling-popup {
 
-    color: white;
+    background: $fucsia;
 
-    #btn-cerrar {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        img {
-            width: 20px;
-        }
-    }
-
-    .scroll-content .scroll {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        -webkit-justify-content: center;
-    }
-
-    .box {
-        background: white;
-        width: 80%;
-        /*height: auto;*/
+    .popup {
         border-radius: 10px;
     }
 
-    .bold {
+    .popup-title {
+        font-family: Arial;
         font-weight: bold;
     }
 
-    .box p {
-        color: black;
-        font-family: Arial;
+    .popup-sub-title {
         text-transform: uppercase;
+        font-size: 90%;
     }
 
-    .box a {
-        color: #1b7cba;
-        text-decoration: none;
+    .popup-buttons {
+        border-top: 1px solid $gris-clarito;
+    }
+
+    .button {
+        text-transform: uppercase;
+        font-size: 100%;
     }
 
 }
@@ -744,7 +749,7 @@ strong {
     .label-unblock {
         font-family: KiplingRegular;
         font-size: 120%
-    } 
+    }
 
     .label-share {
         font-family: gnyrwn971;
